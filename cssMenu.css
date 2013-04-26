@@ -1,0 +1,112 @@
+*
+{
+	padding :0;
+	margin: 0;
+}
+
+body
+{
+	font-size:62.5%;
+	font-family:verdana,arial,sans-serif;
+}
+
+.Menu
+{
+	white-space		: nowrap;
+	float			: left;
+	color			: rgb(75,75,75);
+	width			: 1200px;
+	border			: none;
+	font-size 		: 130%;
+	border-radius	: 4px;
+}
+
+.Menu ul
+{
+	list-style-type	: none;
+}
+
+.Menu ul li
+{
+	float			: left;
+	z-index			: auto !important;
+	z-index			: 1000;
+}
+
+.Menu ul li ul li
+{
+	border-right	: solid 1px rgb(175,175,175);	
+}
+
+.Menu ul li a
+{
+	float			: none !important;
+	float			: left;
+	display			: block;
+	height			: 3.1em;
+	line-height		: 3.1em;
+	padding			: 0 16px 0 16px;
+	text-decoration	: none;
+	font-weight		: bold;
+	color			: rgb(240,240,240);
+}
+
+.Menu ul li ul
+{
+	display			: none;
+	border			: none;	
+	padding-top 	: 100px;
+}
+
+.Menu ul li:hover a
+{
+	background-image: url(Images/FondMenu2.png);
+	background-size	: 100% 100%;
+	text-decoration	: none; 
+}
+
+#MenuBoutonGauche:hover
+{
+	background-image: url(Images/FondMenu2.png);
+	background-size	: 100% 100%;
+	text-decoration	: none; 
+	border-top-left-radius	: 4px;
+	border-bottom-left-radius	: 4px;
+}
+
+.Menu ul li:hover ul
+{
+	display			: block;
+	width			: 10.0em;
+	position		: absolute;
+	z-index			: 999;
+	top				: 3.0em;
+	margin-top		: 0.1em;
+	left			: 1;
+}
+
+.Menu ul li:hover ul li a
+{
+	white-space		: normal;
+	display			: block;
+	width			: 10.0em;
+	height			: auto;
+	line-height		: 1.3em;
+	margin-left		: -1px;
+	padding			: 4px 16px 4px 16px;
+	border-left		: solid 1px rgb(175,175,175);
+	border-bottom	: solid 1px rgb(175,175,175);	
+	background-image: url(Images/FondSousMenu.png);
+	background-size	: 100% 100%;
+	font-weight		: normal;
+	color			: rgb(250,250,250);
+	
+}
+
+.Menu ul li:hover ul li a:hover
+{
+	background-image: url(Images/FondSousMenu3.png);
+	background-size	: 100% 100%;
+	text-decoration	: none;
+}
+

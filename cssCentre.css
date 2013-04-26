@@ -1,0 +1,95 @@
+body {
+	width			: 1200px;
+	margin			: 0 auto;
+	background-image: url(Images/Fond1.jpg);
+	background-attachment: fixed;
+}
+
+#fixe-haut
+{
+	background-image: url(Images/test1.jpg);
+    height          : 60px;
+    position        : fixed;
+    top             : 0;
+    width           : 100%;
+    left            : 0%;
+}
+
+#fixe-haut p
+{
+    width           : 1200px;
+    margin          : auto;
+    font            : bold italic 13px times new roman, serif;
+    padding-top     : 10px;	
+	text-align		: right;
+}
+
+#fixe-haut a 
+{ 
+	color			: #309C00; 
+	text-decoration	: none; 
+}
+
+#fixe-haut fieldset { 
+	width			: 1200px;
+	margin			: auto;
+	border			: none; 
+	text-align		: right;
+}
+
+#fixe-haut fieldset input
+{	
+	border-radius			: 1px;
+	/*box-shadow				:5px 5px 5px grey;*/
+}
+
+.button
+{ 
+	position		: relative; 
+	margin			: 5px 0 0 1px;
+	background-color: transparent;
+	border			: none;
+}
+
+.button:hover
+{
+	background-color: #26527f;
+}
+
+#Barremenu
+{
+	background-image: url(Images/FondMenu.png);
+	background-size: cover;
+    height          : 40px;
+	margin-bottom 	: 50px;
+    width           : 100%;
+}
+
+#CentrePage
+{
+	height			: 1000px;
+	margin-top      : 100px;
+}
+
+#CentrePage table
+{
+	border			: solid;
+	border-collapse	: collapse;	
+	width			: 100%;
+	height			: 100%;
+}
+
+#CentrePage table td
+{
+	border			: solid ;
+}
+
+#MenuCote
+{
+	width			: 20%;
+}
+
+#Centre
+{
+	width			: 80%;
+}
