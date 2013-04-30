@@ -88,28 +88,56 @@ $res->closeCursor();
 <label for="t5">Type 5 :: Une ou plusieurs réponses possibles</label><br/>
 
 </fieldset>
-<fieldset>
+<fieldset id="questions">
 <legend>Questions</legend>
+<script type="text/javascript">
+var nbq=1;
+function addquestion()
+{
+nbq++;
+var q=document.getElementById("questions");
+var form=document.createElement("div");
+form.innerHTML="<fieldset><legend>Question "+nbq+"</legend>"+
+"<label for=\"q"+nbq+"\">Question :</label><input type=\"text\" id=\"q"+nbq+"\" name=\"q"+nbq+"\"/><br/>"+
+"<div class=\"rep\" style=\"margin-left:2%;\">"+
+"<label for=\"r"+nbq+".1\">Reponse 1</label><input type=\"text\" id=\"r"+nbq+".1\" name=\"r"+nbq+".1\"/><input type=\"checkbox\" name=\"r"+nbq+".1x\"/><br/>"+
 
+//<label for="r1.2">Reponse 2</label><input type="text" id="r1.2" name="r1.2"/><input type="checkbox" name="r1.2x"/><br/>
+//<label for="r1.3">Reponse 3</label><input type="text" id="r1.3" name="r1.3"/><input type="checkbox" name="r1.3x"/><br/>
+//<label for="r1.4">Reponse 4</label><input type="text" id="r1.4" name="r1.4"/><input type="checkbox" name="r1.4x"/><br/>
+//<label for="r1.5">Reponse 5</label><input type="text" id="r1.5" name="r1.5"/><input type="checkbox" name="r1.5x"/><br/>
+//</div>
+"</fieldset>";
+q.appendChild(form);
+}
+</script>
+<div>
 <fieldset>
 <legend>Question 1</legend>
-<label for="q0">Question :</label>
-<input type="text" id="q0" name="q0"/><br/>
+<label for="q1">Question :</label>
+<input type="text" id="q1" name="q1"/><br/>
 <div class="rep" style="margin-left:2%;">
-<label for="r0.1">Reponse 1</label>
-<input type="text" id="r0.1" name="r0.1"/><br/>
-<label for="r0.2">Reponse 2</label>
-<input type="text" id="r0.2" name="r0.2"/><br/>
-<label for="r0.3">Reponse 3</label>
-<input type="text" id="r0.3" name="r0.3"/><br/>
-<label for="r0.4">Reponse 4</label>
-<input type="text" id="r0.4" name="r0.4"/><br/>
-<label for="r0.5">Reponse 5</label>
-<input type="text" id="r0.5" name="r0.5"/><br/>
+<label for="r1.1">Reponse 1</label>
+<input type="text" id="r1.1" name="r1.1"/>
+<input type="checkbox" name="r1.1x"/><br/>
+<label for="r1.2">Reponse 2</label>
+<input type="text" id="r1.2" name="r1.2"/>
+<input type="checkbox" name="r1.2x"/><br/>
+<label for="r1.3">Reponse 3</label>
+<input type="text" id="r1.3" name="r1.3"/>
+<input type="checkbox" name="r1.3x"/><br/>
+<label for="r1.4">Reponse 4</label>
+<input type="text" id="r1.4" name="r1.4"/>
+<input type="checkbox" name="r1.4x"/><br/>
+<label for="r1.5">Reponse 5</label>
+<input type="text" id="r1.5" name="r1.5"/>
+<input type="checkbox" name="r1.5x"/><br/>
+</div>
+</fieldset>
 </div>
 </fieldset>
 <input type="button" value="Ajouter une question" onclick="addquestion();"/>
-</fieldset>
+
 </form>
 <?php
 }

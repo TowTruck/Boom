@@ -10,7 +10,7 @@
 	</head>
 	
 	<body>
-		<!----------------------- A MODIFIER ----------------------------->	
+		
 		<div id="fixe-haut">
 			<!--<p>
 				<a href="Inscription.html">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oublie.php">Mot de passe oublié ?</a> <br/>	
@@ -23,7 +23,7 @@
 		</form>		
 			</p>-->
 		</div>
-		<!---------------------------------------------------------------->
+		
 		
 		<div id="Barremenu" class="Menu">
 			<ul>
@@ -62,7 +62,7 @@
 				<td id="Centre">Centre</td>
 			</tr>
 		</table>
-		<div>
+		</div>
 		
 	</body>
 	
