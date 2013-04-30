@@ -97,17 +97,21 @@ function addquestion()
 nbq++;
 var q=document.getElementById("questions");
 var form=document.createElement("div");
-form.innerHTML="<fieldset><legend>Question "+nbq+"</legend>"+
+var html="<fieldset><legend>Question "+nbq+"</legend>"+
 "<label for=\"q"+nbq+"\">Question :</label><input type=\"text\" id=\"q"+nbq+"\" name=\"q"+nbq+"\"/><br/>"+
-"<div class=\"rep\" style=\"margin-left:2%;\">"+
-"<label for=\"r"+nbq+".1\">Reponse 1</label><input type=\"text\" id=\"r"+nbq+".1\" name=\"r"+nbq+".1\"/><input type=\"checkbox\" name=\"r"+nbq+".1x\"/><br/>"+
-
+"<div class=\"rep\" style=\"margin-left:2%;\">";
+for(var i=1;i<6;i++)
+{
+html+="<label for=\"r"+nbq+"."+i+"\">Reponse "+i+"</label><input type=\"text\" id=\"r"+nbq+"."+i+"\" name=\"r"+nbq+"."+i+"\"/><input type=\"checkbox\" name=\"r"+nbq+"."+i+"x\"/><br/>";
+}
+html+="</fieldset>";
+form.innerHTML=html;
 //<label for="r1.2">Reponse 2</label><input type="text" id="r1.2" name="r1.2"/><input type="checkbox" name="r1.2x"/><br/>
 //<label for="r1.3">Reponse 3</label><input type="text" id="r1.3" name="r1.3"/><input type="checkbox" name="r1.3x"/><br/>
 //<label for="r1.4">Reponse 4</label><input type="text" id="r1.4" name="r1.4"/><input type="checkbox" name="r1.4x"/><br/>
 //<label for="r1.5">Reponse 5</label><input type="text" id="r1.5" name="r1.5"/><input type="checkbox" name="r1.5x"/><br/>
 //</div>
-"</fieldset>";
+
 q.appendChild(form);
 }
 </script>
