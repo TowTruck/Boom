@@ -95,6 +95,7 @@ $res->closeCursor();
 <legend>Question 1</legend>
 <label for="q0">Question :</label>
 <input type="text" id="q0" name="q0"/><br/>
+<div class="rep" style="margin-left:2%;">
 <label for="r0.1">Reponse 1</label>
 <input type="text" id="r0.1" name="r0.1"/><br/>
 <label for="r0.2">Reponse 2</label>
@@ -105,6 +106,7 @@ $res->closeCursor();
 <input type="text" id="r0.4" name="r0.4"/><br/>
 <label for="r0.5">Reponse 5</label>
 <input type="text" id="r0.5" name="r0.5"/><br/>
+</div>
 </fieldset>
 <input type="button" value="Ajouter une question" onclick="addquestion();"/>
 </fieldset>
