@@ -32,10 +32,48 @@ else
 {
 $user=$_SESSION['login'];
 //On verifie si un qcm est soumis
-if(isset($_POST['qcm']))
+if(isset($_POST['qcm'])&&($_POST['qcm']=='sub'))
 {
 //Section ajout du qcm à la bdd
-//TODO !
+
+//Id users et variables utiles
+$res=$bdd->query("SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."';");
+$res->setFetchMode(PDO::FETCH_OBJ);
+$ligne=$res->fetch();
+$idu=$ligne->ID_USERS;
+$res->closeCursor();
+
+//Selection du mode
+if($_POST['mode']=='entrainement')
+{
+$note="FALSE";
+}
+else
+{
+$note="TRUE";
+}
+
+//Selection public/groupe
+if($_POST['pour']=='public')
+{
+$pour="NULL";
+}
+else
+{
+$pour=$_POST['lstGr'];
+}
+
+//Ajout qcm
+$res=$bdd->query("INSERT INTO QCM (ID_THEME,ID_USERS,INTITULE,NOTE,GROUPE) VALUES(NULL,".$idu.",".$_POST['nom'].",".$note.",".$pour.")");
+
+//Ajout des questions
+$ite=1;
+while(isset($_POST['q'.$ite]))
+{
+
+$ite++;
+}
+
 }
 else
 {
@@ -43,7 +81,7 @@ else
 ?>
 
 <form action="creationqcm.php" method="post">
-
+<input type="hidden" name="qcm" value="sub">
 <fieldset>
 <legend>Informations</legend>
 
@@ -97,21 +135,11 @@ function addquestion()
 nbq++;
 var q=document.getElementById("questions");
 var form=document.createElement("div");
-var html="<fieldset><legend>Question "+nbq+"</legend>"+
-"<label for=\"q"+nbq+"\">Question :</label><input type=\"text\" id=\"q"+nbq+"\" name=\"q"+nbq+"\"/><br/>"+
-"<div class=\"rep\" style=\"margin-left:2%;\">";
+var html="<fieldset><legend>Question "+nbq+"</legend>"+"<label for=\"q"+nbq+"\">Question :</label><input type=\"text\" id=\"q"+nbq+"\" name=\"q"+nbq+"\"/><br/>"+"<div class=\"rep\" style=\"margin-left:2%;\">";
 for(var i=1;i<6;i++)
-{
-html+="<label for=\"r"+nbq+"."+i+"\">Reponse "+i+"</label><input type=\"text\" id=\"r"+nbq+"."+i+"\" name=\"r"+nbq+"."+i+"\"/><input type=\"checkbox\" name=\"r"+nbq+"."+i+"x\"/><br/>";
-}
+{html+="<label for=\"r"+nbq+"."+i+"\">Reponse "+i+"</label><input type=\"text\" id=\"r"+nbq+"."+i+"\" name=\"r"+nbq+"."+i+"\"/><input type=\"checkbox\" name=\"r"+nbq+"."+i+"x\"/><br/>";}
 html+="</fieldset>";
 form.innerHTML=html;
-//<label for="r1.2">Reponse 2</label><input type="text" id="r1.2" name="r1.2"/><input type="checkbox" name="r1.2x"/><br/>
-//<label for="r1.3">Reponse 3</label><input type="text" id="r1.3" name="r1.3"/><input type="checkbox" name="r1.3x"/><br/>
-//<label for="r1.4">Reponse 4</label><input type="text" id="r1.4" name="r1.4"/><input type="checkbox" name="r1.4x"/><br/>
-//<label for="r1.5">Reponse 5</label><input type="text" id="r1.5" name="r1.5"/><input type="checkbox" name="r1.5x"/><br/>
-//</div>
-
 q.appendChild(form);
 }
 </script>
