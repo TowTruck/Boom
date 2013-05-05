@@ -11,7 +11,7 @@ Permet d'accéder à la page de création de groupe
 */
 
 try {
-  $my_id = (isset($_GET['id']))?$_GET['id']:0;
+  $my_id = (isset($_SESSION['uid']))?$_SESSION['uid']:0;
 
 	if($my_id > 0 and isAuth())
 	{
