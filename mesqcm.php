@@ -3,7 +3,7 @@
 require('top.php');
 
 /* Page mesqcm
-Pramètres (GET) : id de l'utilisateur
+Pramètres (SESSION) : id de l'utilisateur
 
 Description :
 Affiche la liste des qcm créés par l'utilisateur en paramètres
@@ -13,7 +13,7 @@ Permet d'accéder à la page de création de qcm
 */
 
 try {
-  $my_id = (isset($_GET['id']))?$_GET['id']:0;
+  $my_id = (isset($_SESSION['uid']))?$_SESSION['uid']:0;
 
 	if($my_id > 0 and isAuth())
 	{
