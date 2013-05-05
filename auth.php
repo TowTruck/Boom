@@ -2,7 +2,7 @@
 
 function isAdmin()
 {
-	if(isset($_SESSION['login'])&&($_SESSION['login']=='admin'))
+	if(isset($_SESSION['adm'])&&($_SESSION['adm']==true))
 	{
 		return true;
 	}
@@ -38,6 +38,22 @@ if(!isAuth()&&isset($_POST['login'])&&isset($_POST['mdp']))
 	{
 		//Utilisateur confirmé
 		$_SESSION['login']=$_POST['login'];
+
+		$req="SELECT USERS.ID_USERS,RANG.NOM FROM USERS,RANG WHERE LOGIN='".$_POST['login']." AND USERS.ID_RANG=RANG.ID_RANG";		
+		$res=$bdd->query($req);
+		$donnees=$res->fetchAll();
+		
+		$_SESSION['uid']=$donnes[0][0];
+		
+		if($donnes[0][1]=='admin')
+		{
+		$_SESSION['adm']=true;
+		}
+		else
+		{
+		$_SESSION['adm']=false;
+		}
+		
 	}
 	else
 	{
