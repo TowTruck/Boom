@@ -16,6 +16,8 @@ correspond à un QCM avec une seule réponse possible par question alors que le ty
 réponses par questions, le nombre étant indiqué par le contribueur 
 option pour autoriser les commentaires (si les commentaires ont été implémentés)
 */
+
+require('top.php');
 ?>
 <div id="centre">
 
@@ -35,13 +37,6 @@ $user=$_SESSION['login'];
 if(isset($_POST['qcm'])&&($_POST['qcm']=='sub'))
 {
 //Section ajout du qcm à la bdd
-
-//Id users et variables utiles
-$res=$bdd->query("SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."';");
-$res->setFetchMode(PDO::FETCH_OBJ);
-$ligne=$res->fetch();
-$idu=$ligne->ID_USERS;
-$res->closeCursor();
 
 //Selection du mode
 if($_POST['mode']=='entrainement')
@@ -64,16 +59,34 @@ $pour=$_POST['lstGr'];
 }
 
 //Ajout qcm
-$res=$bdd->query("INSERT INTO QCM (ID_THEME,ID_USERS,INTITULE,NOTE,GROUPE) VALUES(NULL,".$idu.",".$_POST['nom'].",".$note.",".$pour.")");
+$res=$bdd->query("INSERT INTO QCM (ID_THEME,ID_USERS,INTITULE,NOTE,TYPES) VALUES(NULL,".$_SESSION['uid'].",'".$_POST['nom']."',".$note.",".$_POST['type'].")");
+$idqcm=$bdd->lastInsertId();
+
+//$res=$bdd->query("INSERT INTO LIAISON (ID_QCM,ID_GROUPE) VALUES (".$idqcm.",".$pour.")");
 
 //Ajout des questions
 $ite=1;
 while(isset($_POST['q'.$ite]))
 {
+$res=$bdd->query("INSERT INTO QUESTIONS (ID_QCM,INTITULE) VALUES (".$idqcm.",'".$_POST['q'.$ite]."')");
+$idquest=$bdd->lastInsertId();
+
+$itee=1;
+
+while(isset($_POST['r'.$ite.'_'.$itee]))
+{
+if(isset($_POST['r'.$ite.'_'.$itee.'x']))
+{$val="TRUE";}
+else
+{$val="FALSE";}
+$res=$bdd->query("INSERT INTO REPONSES (ID_QUESTIONS,NOM,VALEUR) VALUES (".$idquest.",'".$_POST['r'.$ite.'_'.$itee]."',".$val.")");
+$itee++;
+}
 
 $ite++;
 }
 
+echo "<h1>Ajout OK</h1>";
 }
 else
 {
@@ -105,11 +118,11 @@ else
 <select id="lstGr" name="lstGr">
 //Code php pour lister les groupes
 <?php
-$res=$bdd->query("SELECT NOM FROM GROUPE WHERE ID_USERS in(SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."');");
+$res=$bdd->query("SELECT ID_GROUPE,NOM FROM GROUPE WHERE ID_USERS in(SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."');");
 $res->setFetchMode(PDO::FETCH_OBJ);
 while($ligne=$res->fetch())
 {
-echo '<option value="'.$ligne->NOM.'">'.$ligne->NOM.'</option>';
+echo '<option value="'.$ligne->ID_GROUPE.'">'.$ligne->NOM.'</option>';
 }
 $res->closeCursor();
 ?>
@@ -119,10 +132,10 @@ $res->closeCursor();
 
 <label>Type : </label><br/>
 
-<input type="radio" id="t1" name="type" value="t1">
+<input type="radio" id="t1" name="type" value="1">
 <label for="t1">Type 1 :: Une seule réponse possible</label><br/>
 
-<input type="radio" id="t5" name="type" value="t5">
+<input type="radio" id="t5" name="type" value="5">
 <label for="t5">Type 5 :: Une ou plusieurs réponses possibles</label><br/>
 
 </fieldset>
@@ -169,7 +182,7 @@ q.appendChild(form);
 </div>
 </fieldset>
 <input type="button" value="Ajouter une question" onclick="addquestion();"/>
-
+<input type="submit" value="Valider"/>
 </form>
 <?php
 }
@@ -181,4 +194,6 @@ q.appendChild(form);
 
 
 }
+echo "</div>";
+require('bottom.php');
 ?>
