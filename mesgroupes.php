@@ -2,7 +2,7 @@
 require('top.php');
 
 /* Page mesgroupes
-Pramètres (GET) : id de l'utilisateur
+Pramètres (SESSION) : id de l'utilisateur
 
 Description :
 Affiche la liste des groupes créés par l'utilisateur en paramètres
