@@ -59,6 +59,16 @@ require_once('auth.php');
 					</ul>
 					</form>
 				</li>
+				<li>
+					<form method="post" action="recherche.php">
+					<a href="#">Recherche
+						<input type="text" name="recherche" maxlength="50" />
+						<input type="submit" value="Go ! " />
+					</a>
+						</li>
+						
+					</form>
+				</li>
 				<?php
 				}
 				else
