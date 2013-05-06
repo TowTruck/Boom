@@ -26,8 +26,9 @@ else
 		while(isset($_POST['user'.$indice]))
 		{
 			// verifier avant le premier insert
-			$select=$bdd->query("SELECT ID_USERS FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."');");
-			if(mysql_num_rows($select)==0){
+			$select=$bdd->query("SELECT COUNT(*) FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."');");
+			$select->setFetchMode(PDO::FETCH_OBJ);
+			if($select == 0){
 				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'est pas enregistré. SI vous avez fait une erreur, ajoutez cet utilisateur sur la page du groupe</h2>";
 			}
 		
