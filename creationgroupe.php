@@ -26,10 +26,10 @@ else
 		while(isset($_POST['user'.$indice]))
 		{
 			// verifier avant le premier insert
-			$select=$bdd->query("SELECT COUNT(*) AS ref FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."');");
+			$select=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
 			$select->setFetchMode(PDO::FETCH_OBJ);
 			$ligne=$select->fetch();
-			if($ligne->COUNT() == 0){
+			if($ligne->COMPT == 0){
 				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'est pas enregistré. SI vous avez fait une erreur, ajoutez cet utilisateur sur la page du groupe</h2>";
 				
 			}
@@ -44,7 +44,8 @@ else
 				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'a pas encore validé son compte, ajoutez le plus tard.</h2>";
 			}*/
 			//else{
-			$res=$bdd->query("INSERT INTO FONT_PARTIE (ID_USERS,ID_GROUPE) VALUES(".$select.",".$idgroupe." )");
+			$ident = $bdd->query("SELECT ID_USERS FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
+			$res=$bdd->query("INSERT INTO FONT_PARTIE (ID_USERS,ID_GROUPE) VALUES(".$ident.",".$idgroupe." )");
 			//}
 			}
 			
