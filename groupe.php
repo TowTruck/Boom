@@ -5,17 +5,19 @@ require('top.php');
 
 <?php
 	
-	// recuperation du groupe
+	// recuperation du groupe + informations
 	$idg=$_GET['id'];
-	//Verification que l'utilisateur est le propriétaire du groupe, si oui, on affiche les utilisateurs du groupe pour pouvoir les supprimer
+	
 	$select=$bdd->query("SELECT * FROM USERS WHERE ID_USERS IN (SELECT ID_USERS FROM GROUPE WHERE ID_GROUPE=".$idg.");");
 	$select->setFetchMode(PDO::FETCH_OBJ);
 	$info=$select->fetch();
 	echo "<h2>Le propri&eacute;taire du groupe est ".$info->PRENOM." ".$info->NOM.".</h2><br />";
+	
 	$nb=$bdd->query("SELECT COUNT(*) AS COMPT FROM FONT_PARTIE WHERE ID_GROUPE=".$idg." ;");
 	$nb->setFetchMode(PDO::FETCH_OBJ);
 	$nombre=$nb->fetch();
 	echo "<h2>Le groupe a ".$nombre->COMPT." utilisateur(s).</h2><br />";
+	
 	echo "<h2>Les QCMs du groupe: </h2><br />";
 	$nbqcm = $bdd->query("SELECT COUNT(*) AS COMPT FROM LIAISON WHERE ID_GROUPE=".$idg." ;");
 	$nbqcm->setFetchMode(PDO::FETCH_OBJ);
@@ -31,6 +33,26 @@ require('top.php');
 		{
 			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br>';
 		}
+	}
+	//verification si propriétaire, affichage des utilisateurs du groupe si oui
+	if(isAuth())
+	{
+		$my_id = $_SESSION['uid'];
+		$select = $bdd->query("SELECT * FROM GROUPE WHERE ID_USERS=".$my_id.";");
+		$select->setFetchMode(PDO::FETCH_OBJ);
+		$info=$select->fetch();
+		if($info->ID_GROUPE == $idg)
+		{
+			echo "<h2> Vous etes le propr&eacute;taire du groupe. Affichage de la gestion de utilisateurs<h2> <br /> <br /> <br />";
+			$select = $bdd->query("SELECT * FROM USERS WHERE ID_USERS IN (SELECT * FROM LIAISON WHERE ID_GROUPE=".$idg.") ;");
+			$select->setFetchMode(PDO::FETCH_OBJ);
+			$info=$select->fetch();
+			while( $enregistrement = $select->fetch() )
+		{
+			echo '<h2>'.$enregistrement->PRENOM.' '.$enregistrement->NOM.'</h2><br />';
+		}
+		}
+		
 	}
 	?>
 <?php
