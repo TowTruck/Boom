@@ -84,21 +84,38 @@ return true;
 
 }
 
+if(isset($_POST['qcm']))
+{
+/*-----------------------------------------------------------------
+				Section soumission d'un qcm
+-------------------------------------------------------------------
+*/
+
+
+}
+else
+{
+
 if(isset($_GET['id']))
 {
 $idqcm=$_GET['id'];
 
 	if(isAuth()&&check_proprio())
 	{
-	//Cas ou c'est le proprietaire : Il faut affiché les notes des participants
-	
+	/*-----------------------------------------------------------------
+				Section affichage des notes des participants
+	-------------------------------------------------------------------
+	*/
 	}
 	else
 	{
 	//On verifie que l'on a le droit ou non d'effectuer ce qcm
 	if(autorisation_qcm())
 	{
-	//On balance le qcm
+	/*-----------------------------------------------------------------
+				Section affichage du qcm
+	-------------------------------------------------------------------
+	*/
 	
 	}
 	else
@@ -117,6 +134,8 @@ $idqcm=$_GET['id'];
 else
 {
 echo "<h1>Erreur</h1>";
+}
+
 }
 echo "</div>";
 require('bottom.php');
