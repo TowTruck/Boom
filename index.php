@@ -64,9 +64,7 @@ require_once('auth.php');
 					<a href="#">Recherche
 						<input type="text" name="recherche" maxlength="50" />
 						<input type="submit" value="Go ! " />
-					</a>
-				</li>
-						
+					</a>						
 					</form>
 				</li>
 				<?php
