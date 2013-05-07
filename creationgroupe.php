@@ -44,8 +44,11 @@ else
 				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'a pas encore validé son compte, ajoutez le plus tard.</h2>";
 			}*/
 			//else{
-			$ident = $bdd->query("SELECT ID_USERS FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
-			$res=$bdd->query("INSERT INTO FONT_PARTIE (ID_USERS,ID_GROUPE) VALUES(".$ident.",".$idgroupe." )");
+			$ident = $bdd->query("SELECT ID_USERS AS ID FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
+			$ident->setFetchMode(PDO::FETCH_OBJ);
+			$ide=$ident->fetch();
+			$res=$bdd->query("INSERT INTO FONT_PARTIE (ID_USERS,ID_GROUPE) VALUES(".$ide->ID.",".$idgroupe." )");
+			echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." a &eacute;t&eacute; ajout&eacute; au groupe.</h2><br />";
 			//}
 			}
 			
