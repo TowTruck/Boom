@@ -26,11 +26,11 @@ else
 		while(isset($_POST['user'.$indice]))
 		{
 			// verifier avant le premier insert
-			$select=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
+			$select=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."' AND VALIDE IS NULL ;");
 			$select->setFetchMode(PDO::FETCH_OBJ);
 			$ligne=$select->fetch();
 			if($ligne->COMPT == 0){
-				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'est pas enregistré. SI vous avez fait une erreur, ajoutez cet utilisateur sur la page du groupe</h2>";
+				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'est pas enregistr&eacute; ou non valid&eacute;. SI vous avez fait une erreur, ajoutez cet utilisateur sur la page du groupe</h2>";
 				
 			}
 			
@@ -38,18 +38,12 @@ else
 			//recupere id associé au mail
 			//si pas de ligne echo de l'adresse mail qui marche pas, plus verif champ valid null quand mis en place donc echo différent
 			else {
-			// $select2=$bdd->query("SELECT VALID FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."');");
-			/*if($select2!=NULL)
-			{
-				echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." n'a pas encore validé son compte, ajoutez le plus tard.</h2>";
-			}*/
-			//else{
+			
 			$ident = $bdd->query("SELECT ID_USERS AS ID FROM USERS WHERE MAIL= '".$_POST['user'.$indice]."';");
 			$ident->setFetchMode(PDO::FETCH_OBJ);
 			$ide=$ident->fetch();
 			$res=$bdd->query("INSERT INTO FONT_PARTIE (ID_USERS,ID_GROUPE) VALUES(".$ide->ID.",".$idgroupe." )");
 			echo "<h2>L'utilisateur ayant le mail ".$_POST['user'.$indice]." a &eacute;t&eacute; ajout&eacute; au groupe.</h2><br />";
-			//}
 			}
 			
 			$indice++;
