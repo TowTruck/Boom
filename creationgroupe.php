@@ -82,7 +82,7 @@ else
 				q.appendChild(form);
 			}
 		</script>
-		<label for="user1"> Mail l'utilisateur 1: </legend>
+		<label for="user1"> Mail l'utilisateur 1: </label>
 		<input type="text" id="user1" name="user1"/><br />
 		</fieldset>
 		<input type="button" value="Ajouter un utilisateur" onclick="adduser();"/><br />
