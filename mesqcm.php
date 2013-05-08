@@ -28,7 +28,7 @@ try {
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
-			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br>';
+			echo $enregistrement->INTITULE.'<br>';
 		}
 	?>
 	
@@ -41,7 +41,7 @@ try {
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
-			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br>';
+			echo $enregistrement->INTITULE.', note : '.$enregistrement->NOTE.'<br>';
 		}
 	?>
 	
