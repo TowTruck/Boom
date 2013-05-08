@@ -15,7 +15,7 @@ require('auth.php');
 ?>
 		<div id="fixe-haut"><!--
 			<p>
-				<a href="Inscription.html">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oublie.php">Mot de passe oublié ?</a> <br/>	
+				<a href="Inscription.html">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oublie.php">Mot de passe oubliï¿½ ?</a> <br/>	
 		<form method="post" action="">
 			<fieldset>
 				<input type="text" maxlength="255" />
@@ -57,6 +57,14 @@ require('auth.php');
 						<li>MdP : <input type="password" name="mdp" maxlength="255" /></li>
 						<li> <input type="submit" value="connexion" /></li>
 					</ul>
+					</form>
+				</li>
+				<li>
+					<form method="post" action="recherche.php">
+					<a href="#">Recherche
+						<input type="text" name="recherche" maxlength="50" />
+						<input type="submit" value="Go ! " />
+					</a>						
 					</form>
 				</li>
 				<?php
