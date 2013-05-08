@@ -17,8 +17,18 @@ require('top.php');
 			{
 				if (isset($_POST[$ligne->ID_USERS])) 
 				{
-					$suppr=$bdd->query("DELETE FROM FONT_PARTIE WHERE ID_GROUPE= '".$idg."' AND ID_USERS='".$ligne->ID_USERS."';");
-					echo '<h2> Utilisateur ayant pour id '.$ligne->ID_USERS.' supprime du groupe.</h2>';
+					$select1=$bdd->query("SELECT ID_USERS FROM GROUPE WHERE ID_GROUPE= '".$idg."';");
+					$select1->setFetchMode(PDO::FETCH_OBJ);
+					$proprio=$select1->fetch();
+					if($ligne->ID_USERS != $proprio->ID_USERS)
+					{
+						$suppr=$bdd->query("DELETE FROM FONT_PARTIE WHERE ID_GROUPE= '".$idg."' AND ID_USERS='".$ligne->ID_USERS."';");
+						echo '<h2> Utilisateur ayant pour id '.$ligne->ID_USERS.' supprime du groupe.</h2>';
+					}
+					else
+					{
+						echo '<h2> Vous ne pouvez pas supprimer le propri&eacute;taire du groupe</h2>';
+					}
 				}
 			}
 	}
