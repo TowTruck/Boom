@@ -1,4 +1,10 @@
 <?php
+require('top.php');
+?>
+<div id="centre">
+
+<?php
+
 if(isset($_POST['email']) and $_POST['email']!="" and isset($_POST['sujet']) and $_POST['sujet']!="" and isset($_POST['message']) and $_POST['message']!="")
 {
   $destinataire = 'test@test.com';
@@ -45,4 +51,6 @@ else
 </form>
 <?php
 }
+
+require('bottom.php');
 ?>
