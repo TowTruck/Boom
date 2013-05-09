@@ -30,7 +30,7 @@ if(!isAuth()&&isset($_POST['login'])&&isset($_POST['mdp']))
 {
 	//On hache le mot de passe avant de le verif dans la bdd
 	$mdp=hash('sha256',$_POST['mdp']);
-	$req="SELECT COUNT(*) FROM USERS WHERE LOGIN='".$_POST['login']."' AND MDP='".$mdp."' AND WHERE VALIDE IS NULL";
+	$req="SELECT COUNT(*) FROM USERS WHERE LOGIN='".$_POST['login']."' AND MDP='".$mdp."' AND VALIDE IS NULL";
 	$res=$bdd->query($req);
 	$donnees=$res->fetchAll();
 
