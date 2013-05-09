@@ -51,7 +51,7 @@ require_once('auth.php');
 				{
 				?>
 				<li><a href="#">Connexion</a>
-				<form method="post" action="">
+					<form method="post" action="">
 					<ul>
 						<li>Login : <input type="text" name="login" maxlength="255" /></li>
 						<li>MdP : <input type="password" name="mdp" maxlength="255" /></li>
@@ -80,7 +80,7 @@ require_once('auth.php');
 		
 		<div id="CentrePage">
 					<div id="MenuCote">Menu gauche</div>
-					<div id="Centre">Centre<br/> lalala <br/> dfsdf</div
+					<div id="Centre">Centre<br/> lalala <br/> dfsdf</div>
 				
 		</div>
 		
