@@ -1,12 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
-
-	<head>
-		<title> Centre de la page </title>
-		<link rel="stylesheet" type="text/css" href="cssMenu.css" />
-		<link rel="stylesheet" type="text/css" href="cssCentre.css" />		
-	</head>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+	<title>Titre de votre page</title>
+	<link rel="stylesheet" type="text/css" href="cssMenu.css" />
+	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
+  </head>
 	
 	<body>
 <?php
