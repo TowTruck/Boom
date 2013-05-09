@@ -79,12 +79,20 @@ require_once('auth.php');
 		</div>
 		
 		<div id="CentrePage">
-		<table>
-			<tr>
-				<td id="MenuCote">Menu gauche</td>
-				<td id="Centre">Centre</td>
-			</tr>
-		</table>
+			<table>
+				<tr>
+					<td id="MenuCote">Menu gauche</td>
+					<td id="Centre">Centre</td>
+				</tr>
+			</table>
+			
+			<h3>Bienvenu sur le site de QCM de l'université de bourgogne ! <br/><br/><br/></h3>
+			
+			<p>Vous trouverez sur ce site des QCM relatifs à toutes les matières enseignées sur le campus.<br/><br/>
+			Ce site est à but pédagogique, principalement pour que vous puissiez, vous-même, tester vos connaissances.<br/>
+			Cependant, vos professeurs utiliseront ce site dans le but de vous évaluer sur certains QCM dont vous aurez été prévenus à l'avance.<br/><br/>
+			N'oubliez pas de vous connecter afin d'avoir accès à toutes les rubriques !<br/></p>
+	
 		</div>
 		
 	</body>
