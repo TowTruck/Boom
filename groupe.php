@@ -121,7 +121,7 @@ require('top.php');
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch() )
 			{
-				echo '<tr><td>'.$enregistrement1->PRENOM.'</td><td> '.$enregistrement1->NOM.'</td><td><input type="checkbox" id="'.$enregistrement1->ID_USERS.'" name="'.$enregistrement1->ID_USERS.'" /></tr>';
+				echo '<tr><td>'.$enregistrement1->PRENOM.'</td><td> '.$enregistrement1->NOM.'</td><td><input type="checkbox" id="'.$enregistrement1->ID_USERS.'" name="'.$enregistrement1->ID_USERS.'" /></td></tr>';
 			}
 			echo"</table>";
 			echo '<input type="submit" value="Supprimer"/>';
