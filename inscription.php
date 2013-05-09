@@ -4,53 +4,83 @@ require('top.php');
 <div id="centre">
 
 <?php
-	&id = $_POST['id'];
-	&login = $_POST['login'];
-	&nom = $_POST['nom'];
-	&prenom = $_POST['prenom'];
-	&adresse = $_POST['adresse'];
-	&Mdp = $_POST['MdP'];
+
+if(isset($_POST['logini']))
+{
+	$login = $_POST['logini'];
+	$nom = $_POST['nomi'];
+	$prenom = $_POST['prenomi'];
+	$adresse = $_POST['maili'];
+	$mdp = $_POST['mdpi'];
 	
 	
-	if(&nom==NULL || &prenom==NULL || &login==NULL || &MdP==NULL)
+	if($nom==NULL || $nom=="" || $prenom=="" || $prenom==NULL || $login=="" || $login==NULL || $mdp=="" || $mdp==NULL)
 	{
-		echo "<h2> Vous devez rentrer toutes les informations necessaire pour la création de votre compte </h2>";
+		echo "<script langage=\"text/javascript\">
+		alert(\"Des informations sont manquantes\");
+		</script>";
 	}
 	
 	else
 	{
+		$mdp2=hash('sha256',$mdp);
+		$mail=$adresse."@etu.u-bourbogne.fr";
+		$rand=hash('sha256', (mt_rand().$mail));
+		
+		//Step 1 : on verifie que le login/mail n'existe pas deja
+		$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE LOGIN='".$login."' AND MAIL='".$mail."'");
+		$res->setFetchMode(PDO::FETCH_OBJ);
+		$ligne->fetch();
+		if($ligne->COMPT!=0)
+			{
+			echo "<script langage=\"text/javascript\">
+		alert(\"Ce login ou cette adresse mail est deja utilisé\");
+		</script>";
+			}
+		else
+		{
+		//Step 2 : Insert + envoi du mail
+		$res=$bdd->query("INSERT INTO USERS (ID_RANG,LOGIN,NOM,PRENOM,MDP,VALIDE,MAIL) VALUES (2,'".$login."','".$nom."','".$prenom."','".$mdp2."','".$rand."','".$mail."')");
+		
+		$to = $mail;
+		$herbergement="http://ufrsciencestech.u-bourgogne.fr/~yh476107/Test/validation.php?id="
+		$subject = 'Université de Bourgogne : Inscription QCM ';
+		$message = 'Bonjour, veuillez valider votre compte en vous rendant à cette adresse : '.$hebergement.$rand;
+
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		// En-têtes additionnels
+		$headers .= 'From: Service QCM <inscription.qcm@u-bourgogne.fr>' . "\r\n";
+		 
+		mail($to, $subject, $message,$headers);
+		
+		echo "<script langage=\"text/javascript\">
+		alert(\"Un mail vous a été envoyer !\");
+		</script>";
+		
+		}
 		
 	}
-
+}
 
 
 ?>
-		
-	<form action="inscription.php" method="post">
-		<select id="rang" name="rang">
-			<option value="0"> Utilisateur </option>
-			<option value="1"> Administration</option>
-		</select> <br/>
+		<h2> Formulaire d'inscription </h2><br/>
+	<form action="" method="post">
+
 		<label for="login">Login : </label>
-		<input type="text" id="login" name="login"/> <br/>
+		<input type="text" id="login" name="logini"/> <br/>
 		<label for="nom">Nom : </label>
-		<input type="text" id="nom" name="nom"/> <br/>		
+		<input type="text" id="nom" name="nomi"/> <br/>		
 		<label for="prenom">Pr&eacute;nom : </label>
-		<input type="text" id="prenom" name="prenom"/> <br/>
-		<label for="adresse">Votre adresse : </label>
-		<input type="text" id="adresse" name="adresse" readonly="true"/> <br/>
-		<label for="login">Mot de passe : </label>
-		<input type="password" id="MdP" name="MdP"/> <br/>
-			<script type="text/javascript">
-				function MakeAdress()
-				{
-					var N = document.getElementById("nom").value;
-					var P = document.getElementById("prenom").value;
-					document.getElementById("adresse").value = N+"."+P+"@etu.u-bourgogne.fr";
-				}
-			</script>
-		<input type="button" value="test" onclick="MakeAdress()"/>
-	
+		<input type="text" id="prenom" name="prenomi"/> <br/>
+		<label for="mail">Adresse mail : </label>
+		<input type="text" id="mail" name="maili" />@etu.u-bourgogne.fr <br/>
+		<label for="mdp">Mot de passe : </label>
+		<input type="password" id="mdp" name="mdpi"/> <br/>
+			
+				
+		<input type="submit" value="Valider"/>
 	</form>
 
 <?php
