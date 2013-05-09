@@ -9,22 +9,28 @@ require('top.php');
 
 if(isset($_POST['validation'])&&($_POST['validation']=='val'))
 {
-	$select=$bdd->query("SELECT ID_QCM FROM QCM;");
+	$select=$bdd->query("SELECT ID_QCM FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE = 0);");
 	$select->setFetchMode(PDO::FETCH_OBJ);
 	while($ligne=$select->fetch())
 	{
 		//si validation
-		if (isset('val'.$_POST[$ligne->ID_QCM])) 
+		if (isset($_POST['val'.$ligne->ID_QCM])) 
 		{
+			if($_POST['val'.$ligne->ID_QCM] == 'validation')
+			{
 			$maj=$bdd->query("UPDATE LIAISON SET ID_GROUPE=1 WHERE ID_QCM='".$ligne->ID_QCM."';");
+			echo '<h2> QCM'.$ligne->ID_QCM.' valid&eacute;';
+			}
+	
+		//si suppression
+			else 
+			{
+				$del=$bdd->query("DELETE FROM LIAISON WHERE ID_QCM='".$ligne->ID_QCM."';");
+				$del=$bdd->query("DELETE FROM QCM WHERE ID_QCM='".$ligne->ID_QCM."';");
+				echo '<h2> QCM'.$ligne->ID_QCM.' supprim&eacute;';
+			}
 		}
 	}
-		//si suppression
-		else if(isset('sup'.$_POST[$ligne->ID_QCM]))
-		{
-		
-		}
-		
 }
 
 
@@ -62,16 +68,16 @@ else
 			echo '<input type="hidden" name="validation" value="val">';
 			echo "<table>";
 			echo "<tr><td> Id du createur </td> <td> Intitul&eacute; du QCM </td> <td> Valider le QCM? </td><td> Supprimer le QCM </td></tr>";
-			$select1 = $bdd->query("SELECT * FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE IS NULL);");
+			$select1 = $bdd->query("SELECT * FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE = 0);");
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch())
 			{
 				
-					echo '<tr><td>'.$enregistrement1->ID_USERS.'<td><a href="qcm.php?id="'.$enregistrement1->ID_QCM.'\');" target="_blank">'.$enregistrement1->INTITULE.'</a></td><td> <input type="radio" id="val'.$enregistrement1->ID_QCM.'" name="'.$enregistrement1->ID_QCM.'" /></td><td> <input type="radio" id="sup'.$enregistrement1->ID_QCM.'" name="'.$enregistrement1->ID_QCM.'" /></td></tr>';
+				echo '<tr><td>'.$enregistrement1->ID_USERS.'<td><a href="qcm.php?id='.$enregistrement1->ID_QCM.'" target="_blank">'.$enregistrement1->INTITULE.'</a></td><td> <input type="radio" id="val'.$enregistrement1->ID_QCM.'" name="val'.$enregistrement1->ID_QCM.'" value="validation" /></td><td> <input type="radio" id="sup'.$enregistrement1->ID_QCM.'" name="val'.$enregistrement1->ID_QCM.'" value="suppression"/></td></tr>';
 				
 			}
 			echo"</table>";
-			echo '<input type="submit" value="Supprimer"/>';
+			echo '<input type="submit" value="Valider/Supprimer"/>';
 			echo "</form>";
 
 	
