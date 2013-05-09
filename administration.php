@@ -4,6 +4,30 @@ require('top.php');
 <div id="centre">
 
 <?php
+
+//validation des qcms
+
+if(isset($_POST['validation'])&&($_POST['validation']=='val'))
+{
+	$select=$bdd->query("SELECT ID_QCM FROM QCM;");
+	$select->setFetchMode(PDO::FETCH_OBJ);
+	while($ligne=$select->fetch())
+	{
+		//si validation
+		if (isset('val'.$_POST[$ligne->ID_QCM])) 
+		{
+			$maj=$bdd->query("UPDATE LIAISON SET ID_GROUPE=1 WHERE ID_QCM='".$ligne->ID_QCM."';");
+		}
+	}
+		//si suppression
+		else if(isset('sup'.$_POST[$ligne->ID_QCM]))
+		{
+		
+		}
+		
+}
+
+
 //suppression des utilisateurs
 
 if(isset($_POST['suppr'])&&($_POST['suppr']=='del'))
