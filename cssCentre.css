@@ -86,10 +86,18 @@ body {
 
 #MenuCote
 {
-	width			: 20%;
+	float			: left;
+	width 			: 19%;
+	border-width	: 1px;
+	border-style	: solid;
+	border-color 	: black;
 }
 
 #Centre
 {
-	width			: 80%;
+	float			: left;
+	width 			: 80%;
+	border-width	: 1px;
+	border-style	: solid;
+	border-color	: black;
 }
