@@ -11,14 +11,14 @@ require('top.php');
 	}
   else
 	{
-		echo"<h3>Bienvenu sur le site de QCM de l'universit&eacute;de bourgogne ! <br/><br/><br/></h3>";
+		echo"<h3>Bienvenu sur le site de QCM de l'universit&eacute; de bourgogne ! <br/><br/><br/></h3>";
 		
-		echo"<p>Vous trouverez sur ce site des QCM relatifs à toutes les mati&egrave;res enseign&eacute;es sur le campus.<br/><br/>
+		echo"<p>Vous trouverez sur ce site des QCM relatifs &agrave; toutes les mati&egrave;res enseign&eacute;es sur le campus.<br/><br/>
 		
 		Ce site est &agrave; but p&eacute;dagogique, principalement pour tester ses connaissances.<br/>
 		Cependant, les professeurs utiliseront ce site dans le but de d'&eacute;valuer vos connaissances.<br/><br/>
 		
-		Inscrivez-vous et connectez-vous afin d'avoir acc&egrave;s à toutes les rubriques !<br/>
+		Inscrivez-vous et connectez-vous afin d'avoir acc&egrave;s &agrave; toutes les rubriques !<br/>
 		Les QCM publics sont &agrave; la dispositions de tous les utilisateurs.</p>";
 	}
 ?>
