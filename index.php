@@ -79,12 +79,12 @@ require_once('auth.php');
 		</div>
 		
 		<div id="CentrePage">
-		<table>
-			<tr>
-				<td id="MenuCote">Menu gauche</td>
-				<td id="Centre">Centre</td>
-			</tr>
-		</table>
+			<table>
+				<tr>
+					<td id="MenuCote">Menu gauche</td>
+					<td id="Centre">Centre</td>
+				</tr>
+			</table>
 		</div>
 		
 	</body>
