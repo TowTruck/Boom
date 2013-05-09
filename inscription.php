@@ -24,13 +24,13 @@ if(isset($_POST['logini']))
 	else
 	{
 		$mdp2=hash('sha256',$mdp);
-		$mail=$adresse."@etu.u-bourbogne.fr";
+		$mail=$adresse."@etu.u-bourgogne.fr";
 		$rand=hash('sha256', (mt_rand().$mail));
 		
 		//Step 1 : on verifie que le login/mail n'existe pas deja
 		$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE LOGIN='".$login."' AND MAIL='".$mail."'");
 		$res->setFetchMode(PDO::FETCH_OBJ);
-		$ligne->fetch();
+		$ligne=$res->fetch();
 		if($ligne->COMPT!=0)
 			{
 			echo "<script langage=\"text/javascript\">
@@ -41,21 +41,26 @@ if(isset($_POST['logini']))
 		{
 		//Step 2 : Insert + envoi du mail
 		$res=$bdd->query("INSERT INTO USERS (ID_RANG,LOGIN,NOM,PRENOM,MDP,VALIDE,MAIL) VALUES (2,'".$login."','".$nom."','".$prenom."','".$mdp2."','".$rand."','".$mail."')");
-		
+
 		$to = $mail;
-		$herbergement="http://ufrsciencestech.u-bourgogne.fr/~yh476107/Test/validation.php?id="
-		$subject = 'Université de Bourgogne : Inscription QCM ';
-		$message = 'Bonjour, veuillez valider votre compte en vous rendant à cette adresse : '.$hebergement.$rand;
+		$hebergement="http://ufrsciencestech.u-bourgogne.fr/~yh476107/Test/validation.php?id=";
+
+		$subject = 'Universite de Bourgogne : Inscription QCM ';
+
+		$message = "<body>Bonjour, veuillez valider votre compte en vous rendant à cette adresse : <a href=\"".$hebergement.$rand."\">Activation du compte</a></body>";
 
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
+
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
 		// En-têtes additionnels
-		$headers .= 'From: Service QCM <inscription.qcm@u-bourgogne.fr>' . "\r\n";
-		 
+		$headers .= 'From: Service QCM <qcm@u-bourgogne.fr>' . "\r\n";
+		$headers .= "Reply-To: Service QCM <qcm@u-bourgogne.fr> \r\n";
+
 		mail($to, $subject, $message,$headers);
-		
+
 		echo "<script langage=\"text/javascript\">
-		alert(\"Un mail vous a été envoyer !\");
+		alert(\"Un mail vous a été envoyer !".$to."\");
 		</script>";
 		
 		}
