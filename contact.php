@@ -7,7 +7,7 @@ require('top.php');
 
 if(isset($_POST['email']) and $_POST['email']!="" and isset($_POST['sujet']) and $_POST['sujet']!="" and isset($_POST['message']) and $_POST['message']!="")
 {
-  $destinataire = 'test@test.com';
+  $destinataire = 'augustin.neo@orange.fr';
         $email = htmlentities($_POST['email']);
         if(preg_match('#^(([a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+\.?)*[a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+)@(([a-z0-9-_]+\.?)*[a-z0-9-_]+)\.[a-z]{2,}$#i',str_replace('&amp;','&',$email)))
         {
@@ -34,7 +34,7 @@ if(isset($_POST['email']) and $_POST['email']!="" and isset($_POST['sujet']) and
 else
 {
 ?>
-<form action="formulaireContact.php" method="post">
+<form action="" method="post">
       <div id="centre">  
 		<fieldset>
 			<legend>Formulaire de contact</legend>
