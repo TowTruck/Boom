@@ -136,4 +136,5 @@ body
  
 .menu ul li:last-child a { border: none; }
 
-.menu a.accueil { background: url(Images/home.png) no-repeat 6px center; }
+.menu a.accueil { background: url(Images/home.png) no-repeat 6px center;
+				 background-size: 26px 23px;}
