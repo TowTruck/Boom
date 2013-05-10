@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="cssMenu.css" />
+	<link rel="stylesheet" type="text/css" href="cssMenu3.css" />
 	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
   </head>
 	
@@ -17,31 +17,53 @@ require('auth.php');
 		
 		<div id="Barremenu" >
 			<ul class="menu">
-				<li><a href="#" class="accueil">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accueil</a></li>				
+				<li><a href="index.php" class="accueil">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accueil</a></li>				
 				<li><a href="#">Lien 1</a>
 					<ul>
 						<li><a href="#">sous lien 1.1</a></li>
 						<li><a href="#">sous lien 1.2</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Lien 2</a>
+				
+				<?php
+				
+				if(isAuth())
+				{
+				?>
+				<li><a href="#" class="menu_qcm">Qcm</a>
 					<ul>
-						<li><a href="#">sous lien 2.1</a></li>
-						<li><a href="#">sous lien 2.2</a></li>
-						<li><a href="#">sous lien 2.3</a></li>
-						<li><a href="#">sous lien 2.3</a></li>
+						<li><a href="mesqcm.php">Mes Qcm </a></li>
+						<li><a href="creationqcm.php">Creation de qcm</a></li>
 					</ul>
 				</li>
 				
+				<li><a href="#" class="menu_groupe">Groupes</a>
+					<ul>
+						<li><a href="mesgroupes.php">Mes groupes </a></li>
+						<li><a href="creationgroupe.php">Creation de groupe</a></li>
+					</ul>
+				</li>
+				
+				<?php
+				}
+				if(isAdmin())
+				{
+				?>
+				<li><a href="administration.php" class="menu_admin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Administration</a></li>
+				<?php
+				}
+				?>
+				<li><a href="contact.php" class="menu_contact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact</a></li>
+				<li><form method="post" action="recherche.php"><a href="#" class="menu_rech">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recherche<input type="text" name="recherche" maxlength="50" /><input type="submit" value="Go ! " /></a></form></li>
+				
 				<div class="droite">
-				<li><a href="#" class="droite">Contact</a></li>
 				
 				<?php
 				
 				if(!isAuth())
 				{
 				?>
-				<li><a href="#">Connexion</a>
+				<li><a href="#" class="menu_conn">Connexion</a>
 				<form method="post" action="">
 					<ul>
 						<li>Login : <input type="text" name="login" maxlength="255" /></li>
@@ -50,22 +72,18 @@ require('auth.php');
 					</ul>
 					</form>
 				</li>
-				<li>
-					<form method="post" action="recherche.php">
-					<a href="#">Recherche
-						<input type="text" name="recherche" maxlength="50" />
-						<input type="submit" value="Go ! " />
-					</a>						
-					</form>
-				</li>
+				<li><a href="inscription.php" class="menu_insc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inscription</a></li>
 				<?php
 				}
 				else
 				{
-				echo "<li><a href=\"#\">Bienvenue ".$_SESSION['login']."</a></li>";
-				echo "<li><a href=\"deconnect.php\">Deconnexion</a></li>";
+				echo "<li><a href=\"#\">Bienvenue ".$_SESSION['login']."</a><ul>";
+				echo "<li><a href=\"compte.php\">Mon compte</a></li>";
+				echo "<li><a href=\"deconnect.php\">Deconnexion</a></li></ul></li>";
 				}
 				?>
+				
+				
 			</div>
 			</ul>			
 		</div>
