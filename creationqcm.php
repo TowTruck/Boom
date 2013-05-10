@@ -113,8 +113,9 @@ else
 <label>Reserve à : </label><br/>
 
 
-//Code php pour lister les groupes
+
 <?php
+//Code php pour lister les groupes
 $res=$bdd->query("SELECT ID_GROUPE,NOM FROM GROUPE WHERE ID_USERS in(SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."');");
 $res->setFetchMode(PDO::FETCH_OBJ);
 $okl=false;

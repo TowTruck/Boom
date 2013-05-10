@@ -37,6 +37,7 @@ echo "<script langage=\"text/javascript\">alert(\"Mot de passe mis à jour\");</s
 
 if(isAuth())
 {
+echo "<h2>Mes informations : </h2><br/>";
 $id=$_SESSION['uid'];
 $res=$bdd->query("SELECT * FROM USERS WHERE ID_USERS=".$id."");
 $res->setFetchMode(PDO::FETCH_OBJ);
