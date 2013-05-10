@@ -1,29 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
-
-	<head>
-		<title> Centre de la page </title>
-		<link rel="stylesheet" type="text/css" href="cssMenu.css" />
-		<link rel="stylesheet" type="text/css" href="cssCentre.css" />		
-	</head>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+	<title>Titre de votre page</title>
+	<link rel="stylesheet" type="text/css" href="cssMenu.css" />
+	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
+  </head>
 	
 	<body>
 <?php
 require('connect.php');
 require('auth.php');
 ?>
-		<div id="fixe-haut"><!--
-			<p>
-				<a href="Inscription.html">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oublie.php">Mot de passe oubli� ?</a> <br/>	
-		<form method="post" action="">
-			<fieldset>
-				<input type="text" maxlength="255" />
-				<input type="password" maxlength="255" />
-				<input type="button" src="" class="button" value="se connecter"/>
-			</fieldset>
-		</form>		
-			</p>-->
+		<div id="fixe-haut">
 		</div>
 		
 		
@@ -78,7 +67,4 @@ require('auth.php');
 			</ul>			
 		</div>
 		<div id="CentrePage">
-		<table>
-			<tr>
-				<td id="MenuCote">Menu gauche</td>
-				<td id="Centre">Centre
+			<div id="MenuCote">Menu gauche</div>

@@ -9,7 +9,7 @@ Sinon on propose le qcm.
 
 require('top.php');
 ?>
-<div id="centre">
+<div id="Centre">
 
 <?php
 

@@ -1,7 +1,7 @@
 <?php
 require('top.php');
 ?>
-<div id="centre">
+<div id="Centre">
 
 <?php
 	

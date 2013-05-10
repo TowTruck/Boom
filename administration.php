@@ -1,7 +1,7 @@
 <?php
 require('top.php');
 ?>
-<div id="centre">
+<div id="Centre">
 <script type="text/javascript">
 function affiche_div(bouton, id) { 
   var div = document.getElementById(id); 

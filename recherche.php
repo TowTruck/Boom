@@ -2,7 +2,7 @@
 require('top.php');
 ?>
 
-<div id="centre">
+<div id="Centre">
 
 <?php 
 if(empty($_POST['recherche']))

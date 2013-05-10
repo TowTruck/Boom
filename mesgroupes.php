@@ -17,7 +17,7 @@ try {
 	{
 ?>
 
-<div id="content">
+<div id="Centre">
 	<div id="chef">
 	<h1>Ceux que j'ai créés</h1>
 	

@@ -19,7 +19,7 @@ option pour autoriser les commentaires (si les commentaires ont été implémentés)
 
 require('top.php');
 ?>
-<div id="centre">
+<div id="Centre">
 
 <?php
 
@@ -51,7 +51,7 @@ $note="TRUE";
 //Selection public/groupe
 if($_POST['pour']=='public')
 {
-$pour="NULL";
+$pour=0;
 }
 else
 {
@@ -62,7 +62,7 @@ $pour=$_POST['lstGr'];
 $res=$bdd->query("INSERT INTO QCM (ID_THEME,ID_USERS,INTITULE,NOTE,TYPES) VALUES(NULL,".$_SESSION['uid'].",'".$_POST['nom']."',".$note.",".$_POST['type'].")");
 $idqcm=$bdd->lastInsertId();
 
-//$res=$bdd->query("INSERT INTO LIAISON (ID_QCM,ID_GROUPE) VALUES (".$idqcm.",".$pour.")");
+$res=$bdd->query("INSERT INTO LIAISON (ID_QCM,ID_GROUPE) VALUES (".$idqcm.",".$pour.")");
 
 //Ajout des questions
 $ite=1;
@@ -112,22 +112,31 @@ else
 
 <label>Reserve à : </label><br/>
 
-<input type="radio" id="groupe" name="pour" value="groupe" onclick="listeGroupe();">
-<label for="groupe">Groupe</label>
 
-<select id="lstGr" name="lstGr">
 //Code php pour lister les groupes
 <?php
 $res=$bdd->query("SELECT ID_GROUPE,NOM FROM GROUPE WHERE ID_USERS in(SELECT ID_USERS FROM USERS WHERE LOGIN='".$user."');");
 $res->setFetchMode(PDO::FETCH_OBJ);
+$okl=false;
+if($ligne=$res->fetch())
+{
+echo "<input type=\"radio\" id=\"groupe\" name=\"pour\" value=\"groupe\"><label for=\"groupe\">Groupe</label>";
+echo "<select id=\"lstGr\" name=\"lstGr\">";
+echo '<option value="'.$ligne->ID_GROUPE.'">'.$ligne->NOM.'</option>';
+$okl=true;
+}
 while($ligne=$res->fetch())
 {
 echo '<option value="'.$ligne->ID_GROUPE.'">'.$ligne->NOM.'</option>';
 }
 $res->closeCursor();
+if($okl)
+{
+echo "</select>";
+}
 ?>
-</select><br/>
-<input type="radio" id="public" name="pour" value="public" onclick="listeGroupe();">
+<br/>
+<input type="radio" id="public" name="pour" value="public">
 <label for="public">Public</label><br/>
 
 <label>Type : </label><br/>
@@ -154,6 +163,12 @@ for(var i=1;i<6;i++)
 html+="</fieldset>";
 form.innerHTML=html;
 q.appendChild(form);
+}
+
+
+function check_qcm()
+{
+
 }
 </script>
 <div>
