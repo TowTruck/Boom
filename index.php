@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 	<title>Titre de votre page</title>
-	<link rel="stylesheet" type="text/css" href="cssMenu.css" />
+	<link rel="stylesheet" type="text/css" href="cssMenu3.css" />
 	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
   </head>
 	
@@ -26,8 +26,8 @@ require_once('auth.php');
 		</div>
 		
 		
-		<div id="Barremenu" class="Menu">
-			<ul>
+		<div id="Barremenu" >
+			<ul class="menu">
 				<li><a href="#" id="MenuBoutonGauche">Accueil</a></li>				
 				<li><a href="#">Lien 1</a>
 					<ul>
@@ -52,8 +52,8 @@ require_once('auth.php');
 				<li><a href="#">Connexion</a>
 					<form method="post" action="">
 					<ul>
-						<li>Login : <input type="text" name="login" maxlength="255" /></li>
-						<li>MdP : <input type="password" name="mdp" maxlength="255" /></li>
+						<li><input type="text" name="login" maxlength="255" value="login" onFocus="javascript:this.value=''"/></li>
+						<li><input type="password" name="mdp" maxlength="255" value="mot de passe" onFocus="javascript:this.value=''"/></li>
 						<li> <input type="submit" value="connexion" /></li>
 					</ul>
 					</form>

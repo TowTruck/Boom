@@ -59,10 +59,11 @@ body {
 #Barremenu
 {
 	background-image: url(Images/FondMenu.png);
-	background-size: cover;
+	background-size : cover;
     height          : 40px;
 	margin-bottom 	: 50px;
     width           : 100%;
+	margin-top 		: 100px;
 }
 
 #CentrePage
