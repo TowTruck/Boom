@@ -15,9 +15,9 @@ require('auth.php');
 		</div>
 		
 		
-		<div id="Barremenu" class="Menu">
-			<ul>
-				<li><a href="#" id="MenuBoutonGauche">Accueil</a></li>				
+		<div id="Barremenu" >
+			<ul class="menu">
+				<li><a href="#" class="accueil">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accueil</a></li>				
 				<li><a href="#">Lien 1</a>
 					<ul>
 						<li><a href="#">sous lien 1.1</a></li>
@@ -32,7 +32,10 @@ require('auth.php');
 						<li><a href="#">sous lien 2.3</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Contact</a></li>
+				
+				<div class="droite">
+				<li><a href="#" class="droite">Contact</a></li>
+				
 				<?php
 				
 				if(!isAuth())
@@ -63,6 +66,7 @@ require('auth.php');
 				echo "<li><a href=\"deconnect.php\">Deconnexion</a></li>";
 				}
 				?>
+			</div>
 			</ul>			
 		</div>
 		<div id="CentrePage">
