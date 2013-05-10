@@ -73,7 +73,7 @@ body
 .menu li:first-child a { border-left: none; }
 .menu li:last-child a{ border-right: none; }
  
-.menu li:hover > a { color: #8fde62; }
+.menu li:hover > a { color: #FF9900; }
 
 .menu ul { display: none; }
 
