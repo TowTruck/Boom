@@ -177,7 +177,8 @@ function valider(form)
 	}
 	else
 	{
-		if(form.mode[1].checked&&form.pour[0].checked)
+
+		if((form.mode[1].checked&&form.pour.checked)||(form.mode[1].checked&&form.pour[0].checked))
 		{
 		alert('Un qcm public ne peut etre note');
 		return false;
@@ -216,7 +217,7 @@ function valider(form)
 				return false;
 				}
 			}
-			return false;
+			return true;
 		}
 
 	}

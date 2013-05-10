@@ -38,9 +38,11 @@ $ligne=$res->fetch();
 
 if($ligne&&$ligne->NOM!="public")
 {
+if(isAuth())
+{
 $noteqcm=$ligne->NOTE;
 //QCM non public : On verifie que l'utilisateur appartient bien au groupe auquel ce qcm est reserve
-$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM GROUPE WHERE ID_USERS=".$_SESSION['uid']." AND ID_GROUPE=".$ligne->ID_GROUPE."");
+$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM FONT_PARTIE WHERE ID_USERS=".$_SESSION['uid']." AND ID_GROUPE=".$ligne->ID_GROUPE."");
 $res->setFetchMode(PDO::FETCH_OBJ);
 $ligne=$res->fetch();
 
@@ -76,7 +78,11 @@ $ligne=$res->fetch();
 	//L'utilisateur n'appartient pas au groupe auquel est destiné ce qcm
 	return false;
 	}
-
+}
+else
+{
+return false;
+}
 }
 else
 {
@@ -95,7 +101,7 @@ if(isset($_POST['mail'])&&isset($_GET['id']))
 				Section envoie des results par mail
 -------------------------------------------------------------------
 */
-$selecti = $bdd->query("SELECT * FROM QCM WHERE ID_QCM=".$idqcm);
+$selecti = $bdd->query("SELECT * FROM QCM WHERE ID_QCM=".$_GET['id']);
 $selecti->setFetchMode(PDO::FETCH_OBJ);
 $lignei=$selecti->fetch();
 
@@ -111,13 +117,13 @@ $headers .= 'From: Service QCM <qcm@u-bourgogne.fr>' . "\r\n";
 $headers .= "Reply-To: Service QCM <qcm@u-bourgogne.fr> \r\n";
 $message = "<body>Bonjour,".$ligne->NOM." ".$ligne->PRENOM." voici les resultats de votre qcm : <br/><br/>";
 
-$selectn = $bdd->query("SELECT REPOND.NOTE,USERS.MAIL FROM REPOND,USERS WHERE REPOND.ID_QCM=".$idqcm." AND USERS.ID_USERS=REPOND.ID_USERS");
+$selectn = $bdd->query("SELECT REPOND.NOTE,USERS.MAIL FROM REPOND,USERS WHERE REPOND.ID_QCM=".$_GET['id']." AND USERS.ID_USERS=REPOND.ID_USERS");
 $selectn->setFetchMode(PDO::FETCH_OBJ);
 	while($lignen=$selectn->fetch())
 	{
-	$message.=$ligne->MAIL." --> ".$ligne->NOTE."<br/>";
+	$message.=$lignen->MAIL." --> ".$lignen->NOTE."<br/>";
 	}
-
+$message.="</body>";
 mail($to, $subject, $message,$headers);
 
 echo "<script langage=\"text/javascript\">
@@ -199,7 +205,7 @@ $idqcm=$_GET['id'];
 	$select->setFetchMode(PDO::FETCH_OBJ);
 	while($ligne=$select->fetch())
 	{
-	echo $ligne->MAIL." --> ".$ligne->NOTE;
+	echo $ligne->MAIL." --> ".$ligne->NOTE."<br/>";
 	$notes+=$ligne->NOTE;
 	$tot++;
 	}
