@@ -25,6 +25,7 @@ try {
 	<h1>Ceux que j'ai créés</h1>
 	
 	<?php
+
 		$select = $bdd->query("SELECT * FROM QCM WHERE ID_USERS = ".$my_id.";");
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
@@ -35,23 +36,21 @@ try {
 	
 	</div>
 	<div id="repondu">
-	<h1>Ceux auxquels j'ai répondu</h1>
+	<br/><h1>Ceux auxquels j'ai répondu</h1>
 	
 	<?php
 		
-		$select = $bdd->query("SELECT * FROM QCM WHERE QCM.ID_QCM IN (SELECT ID_QCM FROM REPOND WHERE ID_USERS = ".$my_id.");");
+		$select = $bdd->query("SELECT REPOND.NOTE,QCM.INTITULE FROM REPOND,QCM WHERE QCM.ID_QCM=REPOND.ID_QCM AND REPOND.ID_USERS=".$my_id);
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
-			$info = $bdd->query("SELECT * FROM REPOND WHERE ID_QCM = ".$enregistrement->IQ_QCM." AND ID_USERS = ".$my_id.");");
-			$info->setFetchMode(PDO::FETCH_OBJ);
-			echo $enregistrement->INTITULE.', note : '.$info->NOTE.'<br>';
+			echo $enregistrement->INTITULE.' --> Note : '.$enregistrement->NOTE.'<br/>';
 		}
 	?>
-	
+
 	</div>
 	<div id="possibles">
-	<h1>Ceux auxquels je peux répondre</h1>
+	<br/><h1>Ceux auxquels je peux répondre</h1>
 	
 	<?php
 	// qcm auxquels l'user n'a pas encore répondu, et ceux dans les groupes où il est + qcm public
@@ -60,20 +59,20 @@ try {
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
-			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br>';
+			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br/>';
 		}
 		
-		$select1 = $bdd->query("SELECT * FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=0);");
+		$select1 = $bdd->query("SELECT * FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=1);");
 		$select1->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement1 = $select1->fetch() )
 		{
-			echo '<a href="qcm.php?id='.$enregistrement1->ID_QCM.'">'.$enregistrement1->INTITULE.'</a><br>';
+			echo '<a href="qcm.php?id='.$enregistrement1->ID_QCM.'">'.$enregistrement1->INTITULE.'</a><br/>';
 		}
 	?>
 	
 	</div>
 
-	<h1>Je veux créer un qcm</h1>
+	<br/><h1>Je veux créer un qcm</h1>
 		<a href="creationqcm.php">Créer un qcm</a>
 </div>
 
