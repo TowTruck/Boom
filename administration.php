@@ -129,7 +129,7 @@ else
 	echo '<form action="administration.php" method="post">';
 			echo '<input type="hidden" name="suppr" value="del">';
 			echo "<table>";
-			echo "<tr><td> Id </td> <td> Nom </td> <td> Prenom </td> <td> Supprimer l'utilisateur? </td></tr>";
+			echo "<tr><td> Id </td> <td> Prenom </td> <td> Nom </td> <td> Supprimer l'utilisateur? </td></tr>";
 			$select1 = $bdd->query("SELECT NOM,PRENOM,ID_USERS,ID_RANG FROM USERS;");
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch())

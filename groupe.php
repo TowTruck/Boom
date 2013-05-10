@@ -104,7 +104,7 @@ require('top.php');
 		}
 	}
 	//verification si propriétaire, affichage des utilisateurs du groupe si oui
-	if(isAuth())
+	if(isAuth() || isAdmin())
 	{
 		$my_id = $_SESSION['uid'];
 		$select = $bdd->query("SELECT * FROM GROUPE WHERE ID_USERS=".$my_id." AND ID_GROUPE=".$idg.";");
