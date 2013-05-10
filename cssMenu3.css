@@ -44,6 +44,8 @@ body
     height: 40px;
 }
 
+
+
 .menu ul { display: none; }
 
 .menu li a {
@@ -138,3 +140,8 @@ body
 
 .menu a.accueil { background: url(Images/home.png) no-repeat 6px center;
 				 background-size: 26px 23px;}
+				 
+.droite{
+	float:right;
+}
+

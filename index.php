@@ -43,7 +43,10 @@ require_once('auth.php');
 						<li><a href="#">sous lien 2.3</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Contact</a></li>
+				
+				<div class="droite">
+				<li><a href="#" class="droite">Contact</a></li>
+				
 				<?php
 				
 				if(!isAuth())
@@ -71,9 +74,10 @@ require_once('auth.php');
 				else
 				{
 				echo "<li><a href=\"#\">Bienvenue ".$_SESSION['login']."</a></li>";
-				echo "<li><a href=\"deconnect.php\">Deconnexion</a></li>";
+				echo "<li><a href=\"deconnect.php\" class=\"droite\">Deconnexion</a></li>";
 				}
 				?>
+				</div>
 			</ul>			
 		</div>
 		
