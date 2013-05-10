@@ -28,7 +28,7 @@ require_once('auth.php');
 		
 		<div id="Barremenu" >
 			<ul class="menu">
-				<li><a href="#" id="MenuBoutonGauche">Accueil</a></li>				
+				<li><a href="#" class="accueil">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accueil</a></li>				
 				<li><a href="#">Lien 1</a>
 					<ul>
 						<li><a href="#">sous lien 1.1</a></li>
