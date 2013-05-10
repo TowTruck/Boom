@@ -86,7 +86,7 @@ body {
 
 #MenuCote
 {
-	Height			: 300px;
+	min-Height		: 300px;
 	float			: left;
 	width 			: 20%;
 	border-width	: 1px;
@@ -98,7 +98,7 @@ body {
 
 #Centre
 {
-	Height			: 300px;
+	min-Height		: 300px;
 	float			: left;
 	width 			: 78.5%;
 	border-width	: 1px;
