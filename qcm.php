@@ -81,8 +81,48 @@ $ligne=$res->fetch();
 else
 {
 //QCM public
-return true;
+if($ligne)
+{return true;}
+else {return false;}
+
 }
+
+}
+
+if(isset($_POST['mail'])&&isset($_GET['id']))
+{
+/*-----------------------------------------------------------------
+				Section envoie des results par mail
+-------------------------------------------------------------------
+*/
+$selecti = $bdd->query("SELECT * FROM QCM WHERE ID_QCM=".$idqcm);
+$selecti->setFetchMode(PDO::FETCH_OBJ);
+$lignei=$selecti->fetch();
+
+$select = $bdd->query("SELECT * FROM USERS WHERE ID_USERS=".$lignei->ID_USERS);
+$select->setFetchMode(PDO::FETCH_OBJ);
+$ligne=$select->fetch();
+
+$to = $ligne->MAIL;
+$subject = 'Universite de Bourgogne : Resultats qcm --> '.$lignei->INTITULE;
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$headers .= 'From: Service QCM <qcm@u-bourgogne.fr>' . "\r\n";
+$headers .= "Reply-To: Service QCM <qcm@u-bourgogne.fr> \r\n";
+$message = "<body>Bonjour,".$ligne->NOM." ".$ligne->PRENOM." voici les resultats de votre qcm : <br/><br/>";
+
+$selectn = $bdd->query("SELECT REPOND.NOTE,USERS.MAIL FROM REPOND,USERS WHERE REPOND.ID_QCM=".$idqcm." AND USERS.ID_USERS=REPOND.ID_USERS");
+$selectn->setFetchMode(PDO::FETCH_OBJ);
+	while($lignen=$selectn->fetch())
+	{
+	$message.=$ligne->MAIL." --> ".$ligne->NOTE."<br/>";
+	}
+
+mail($to, $subject, $message,$headers);
+
+echo "<script langage=\"text/javascript\">
+		alert(\"Resultats envoyés !\");
+		</script>";
 
 }
 
@@ -148,7 +188,29 @@ $idqcm=$_GET['id'];
 				Section affichage des notes des participants
 	-------------------------------------------------------------------
 	*/
-	echo "Tu es proprio";
+	$selecti = $bdd->query("SELECT * FROM QCM WHERE ID_QCM=".$idqcm);
+	$selecti->setFetchMode(PDO::FETCH_OBJ);
+	$ligne=$selecti->fetch();
+	echo "<h1>Resultats du qcm : ".$ligne->INTITULE."</h1><br/><br/>";
+	$notes=0;
+	$tot=0;
+	echo "<h3>Mail --> Note </h3><br/>";
+	$select = $bdd->query("SELECT REPOND.NOTE,USERS.MAIL FROM REPOND,USERS WHERE REPOND.ID_QCM=".$idqcm." AND USERS.ID_USERS=REPOND.ID_USERS");
+	$select->setFetchMode(PDO::FETCH_OBJ);
+	while($ligne=$select->fetch())
+	{
+	echo $ligne->MAIL." --> ".$ligne->NOTE;
+	$notes+=$ligne->NOTE;
+	$tot++;
+	}
+	echo "<br/><br/>";
+	echo "<h3>La moyenne est de : </h3>".$notes/$tot."<br/><br/>";
+?>
+<form action="" method="post">
+<input type="hidden" name="mail" value="mail"/>
+<input type="submit" value="Recevoir les resultats par mail"/>
+</form>
+<?php	
 	}
 	else
 	{
