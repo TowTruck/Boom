@@ -20,6 +20,7 @@ try {
 ?>
 
 <div id="Centre">
+<title>Mes qcm</title>
 	<div id="crees">
 	<h1>Ceux que j'ai créés</h1>
 	

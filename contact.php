@@ -2,7 +2,7 @@
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Contact</title>
 <?php
 
 if(isset($_POST['email']) and $_POST['email']!="" and isset($_POST['sujet']) and $_POST['sujet']!="" and isset($_POST['message']) and $_POST['message']!="")

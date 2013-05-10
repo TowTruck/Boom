@@ -18,6 +18,7 @@ try {
 ?>
 
 <div id="Centre">
+<title>Mes groupes</title>
 	<div id="chef">
 	<h1>Ceux que j'ai créés</h1>
 	

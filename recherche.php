@@ -3,7 +3,7 @@ require('top.php');
 ?>
 
 <div id="Centre">
-
+<title>Recherche</title>
 <?php 
 if(empty($_POST['recherche']))
 {

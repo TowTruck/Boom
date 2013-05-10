@@ -10,7 +10,7 @@ Sinon on propose le qcm.
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Qcm</title>
 <?php
 
 function check_proprio()

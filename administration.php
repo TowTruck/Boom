@@ -2,6 +2,7 @@
 require('top.php');
 ?>
 <div id="Centre">
+<title>Administration</title>
 <script type="text/javascript">
 function affiche_div(bouton, id) { 
   var div = document.getElementById(id); 

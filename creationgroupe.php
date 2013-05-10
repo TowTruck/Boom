@@ -2,7 +2,7 @@
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Creation de groupe</title>
 <?php
 
 //Verification auth

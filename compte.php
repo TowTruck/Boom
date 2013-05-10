@@ -7,7 +7,7 @@ Page mon compte permettant la modification du mot de passe
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Mon compte</title>
 <?php
 if(isset($_POST['qcm']))
 {

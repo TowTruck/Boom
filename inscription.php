@@ -2,7 +2,7 @@
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Inscription</title>
 <?php
 
 if(isset($_POST['logini']))

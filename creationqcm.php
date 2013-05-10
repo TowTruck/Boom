@@ -19,6 +19,7 @@ option pour autoriser les commentaires (si les commentaires ont été implémentés)
 
 require('top.php');
 ?>
+<title>Creation de qcm</title>
 <div id="Centre">
 
 <?php

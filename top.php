@@ -2,7 +2,6 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-	<title>Titre de votre page</title>
 	<link rel="stylesheet" type="text/css" href="cssMenu.css" />
 	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
   </head>

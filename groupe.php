@@ -2,7 +2,7 @@
 require('top.php');
 ?>
 <div id="Centre">
-
+<title>Groupe</title>
 <?php
 	
 	$idg=$_GET['id'];
