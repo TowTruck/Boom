@@ -58,7 +58,7 @@ require('auth.php');
 				
 				<div class="droite">
 				
-				<?php
+				<?phpc
 				
 				if(!isAuth())
 				{
@@ -77,7 +77,7 @@ require('auth.php');
 				}
 				else
 				{
-				echo "<li><a href=\"#\">Bienvenue ".$_SESSION['login']."</a><ul>";
+				echo "<li><a href=\"#\" class=\"menu_welcome\">Bienvenue ".$_SESSION['login']."</a><ul>";
 				echo "<li><a href=\"compte.php\">Mon compte</a></li>";
 				echo "<li><a href=\"deconnect.php\">Deconnexion</a></li></ul></li>";
 				}
