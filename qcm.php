@@ -165,6 +165,27 @@ $idqcm=$_GET['id'];
 <input type="hidden" name="qcm" value="sub">
 	<?php
 // Récupère toutes les question du QCM
+$selecti = $bdd->query("SELECT * FROM QCM WHERE ID_QCM=".$idqcm);
+$selecti->setFetchMode(PDO::FETCH_OBJ);
+$ligne=$selecti->fetch();
+echo "<h1>".$ligne->INTITULE."</h1><br/>";
+if($ligne->TYPES==1)
+{
+echo "<h3>Ce qcm est de type 1 : il n'y a qu'une seule reponse possible par question.</h3><br/>";
+}
+else
+{
+echo "<h3>Ce qcm est de type 5 : il y a entre 1 et 5 reponses possible par question.</h3><br/>";
+}
+if($ligne->NOTE)
+{
+echo "<h3>Votre note sera enregistrer</h3><br/>";
+}
+else
+{
+echo "<h3>Votre pourrez recommencer ce qcm</h3><br/>";
+}
+
 $select = $bdd->query("SELECT * FROM QUESTIONS WHERE ID_QCM = ".$idqcm." ORDER BY ID_QUESTIONS ASC");
 $select->setFetchMode(PDO::FETCH_OBJ);
 while( $enregistrement = $select->fetch() )

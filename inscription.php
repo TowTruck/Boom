@@ -28,7 +28,7 @@ if(isset($_POST['logini']))
 		$rand=hash('sha256', (mt_rand().$mail));
 		
 		//Step 1 : on verifie que le login/mail n'existe pas deja
-		$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE LOGIN='".$login."' AND MAIL='".$mail."'");
+		$res=$bdd->query("SELECT COUNT(*) AS COMPT FROM USERS WHERE LOGIN='".$login."' OR MAIL='".$mail."'");
 		$res->setFetchMode(PDO::FETCH_OBJ);
 		$ligne=$res->fetch();
 		if($ligne->COMPT!=0)

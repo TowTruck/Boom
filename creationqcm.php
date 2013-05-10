@@ -94,8 +94,8 @@ else
 //Section affichage du formulaire
 ?>
 
-<form action="creationqcm.php" method="post">
-<input type="hidden" name="qcm" value="sub">
+<form action="creationqcm.php" method="post" onsubmit="return valider(this)">
+<input type="hidden" name="qcm" value="sub"/>
 <fieldset>
 <legend>Informations</legend>
 
@@ -104,16 +104,17 @@ else
 
 <label>Mode : </label><br/>
 
-<input type="radio" id="entrainement" name="mode" value="entrainement">
+<input type="radio" id="entrainement" name="mode" value="entrainement" checked="checked">
 <label for="entrainement">Entrainement</label><br/>
 
 <input type="radio" id="note" name="mode" value="note">
 <label for="note">Note</label><br/>
 
 
-<label>Reserve à : </label><br/>
+<label>Reserve &agrave : </label><br/>
 
-
+<input type="radio" id="public" name="pour" value="public" checked="checked">
+<label for="public">Public</label><br/>
 
 <?php
 //Code php pour lister les groupes
@@ -134,20 +135,19 @@ echo '<option value="'.$ligne->ID_GROUPE.'">'.$ligne->NOM.'</option>';
 $res->closeCursor();
 if($okl)
 {
-echo "</select>";
+echo "</select><br/>";
 }
 ?>
-<br/>
-<input type="radio" id="public" name="pour" value="public">
-<label for="public">Public</label><br/>
+
+
 
 <label>Type : </label><br/>
 
-<input type="radio" id="t1" name="type" value="1">
-<label for="t1">Type 1 :: Une seule réponse possible</label><br/>
+<input type="radio" id="t1" name="type" value="1" checked="checked">
+<label for="t1">Type 1 :: Une seule r&eacuteponse possible</label><br/>
 
 <input type="radio" id="t5" name="type" value="5">
-<label for="t5">Type 5 :: Une ou plusieurs réponses possibles</label><br/>
+<label for="t5">Type 5 :: Une ou plusieurs r&eacuteponses possibles</label><br/>
 
 </fieldset>
 <fieldset id="questions">
@@ -168,8 +168,58 @@ q.appendChild(form);
 }
 
 
-function check_qcm()
+function valider(form)
 {
+	if(form.elements['nom'].value=="")
+	{
+	alert('Des champs sont vides, completez le formulaire !');
+	return false;
+	}
+	else
+	{
+		if(form.mode[1].checked&&form.pour[0].checked)
+		{
+		alert('Un qcm public ne peut etre note');
+		return false;
+		}
+		else
+		{
+			
+			for(var i=1;i<=nbq;i++)
+			{
+				if(form.elements['q'+i].value=="")
+				{
+				alert('Une question est sans intitule');
+				return false;
+				}
+				var nbr=0;
+				for(var j=1;j<=5;j++)
+				{
+				if(form.elements['r'+i+'.'+j].value=="")
+				{
+				alert('Une reponse est sans intitule');
+				return false;
+				}
+				if(form.elements['r'+i+'.'+j+'x'].checked)
+				{
+				nbr++;
+				}
+				}
+				if(nbr==0)
+				{
+				alert('Une question est sans reponse valide');
+				return false;
+				}
+				if(nbr>1&&form.type[0].checked)
+				{
+				alert('Une question comporte plus d\'une reponse !');
+				return false;
+				}
+			}
+			return false;
+		}
+
+	}
 
 }
 </script>
