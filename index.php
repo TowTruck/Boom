@@ -1,92 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-	<title>Titre de votre page</title>
-	<link rel="stylesheet" type="text/css" href="cssMenu3.css" />
-	<link rel="stylesheet" type="text/css" href="cssCentre.css" />	
-  </head>
-	
-	<body>
 <?php
-require_once('connect.php');
-require_once('auth.php');
+require('top.php');
 ?>
-		<div id="fixe-haut"><!--
-			<p>
-				<a href="Inscription.html">Inscription</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oublie.php">Mot de passe oublié ?</a> <br/>	
-		<form method="post" action="">
-			<fieldset>
-				<input type="text" maxlength="255" />
-				<input type="password" maxlength="255" />
-				<input type="button" src="" class="button" value="se connecter"/>
-			</fieldset>
-		</form>		
-			</p>-->
-		</div>
+<div id="Centre">
+<title>Bienvenue !</title>
+<?php
+  if(isAuth())
+	{	
+		echo " <h3>Bienvenue sur le site de QCM de l'universit&eacute; de Bourgogne ! <br/><br/><br/></h3>";
 		
+		echo "	<p>Acc&eacute;der d&egrave;s maintenant &agrave; vos r&eacute;sultats et aux nouveaux QCM mis en ligne.</p>";
+	}
+  else
+	{
+		echo"<h3>Bienvenu sur le site de QCM de l'universit&eacute; de bourgogne ! <br/><br/><br/></h3>";
 		
-		<div id="Barremenu" >
-			<ul class="menu">
-				<li><a href="#" class="accueil">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accueil</a></li>				
-				<li><a href="#">Lien 1</a>
-					<ul>
-						<li><a href="#">sous lien 1.1</a></li>
-						<li><a href="#">sous lien 1.2</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Lien 2</a>
-					<ul>
-						<li><a href="#">sous lien 2.1</a></li>
-						<li><a href="#">sous lien 2.2</a></li>
-						<li><a href="#">sous lien 2.3</a></li>
-						<li><a href="#">sous lien 2.3</a></li>
-					</ul>
-				</li>
-				
-				<div class="droite">
-				<li><a href="#" class="droite">Contact</a></li>
-				
-				<?php
-				
-				if(!isAuth())
-				{
-				?>
-				<li><a href="#">Connexion</a>
-					<form method="post" action="">
-					<ul>
-						<li><input type="text" name="login" maxlength="255" value="login" onFocus="javascript:this.value=''"/></li>
-						<li><input type="password" name="mdp" maxlength="255" value="mot de passe" onFocus="javascript:this.value=''"/></li>
-						<li> <input type="submit" value="connexion" /></li>
-					</ul>
-					</form>
-				</li>
-				<li>
-					<form method="post" action="recherche.php">
-					<a href="#">Recherche
-						<input type="text" name="recherche" maxlength="50" />
-						<input type="submit" value="Go ! " />
-					</a>						
-					</form>
-				</li>
-				<?php
-				}
-				else
-				{
-				echo "<li><a href=\"#\">Bienvenue ".$_SESSION['login']."</a></li>";
-				echo "<li><a href=\"deconnect.php\" class=\"droite\">Deconnexion</a></li>";
-				}
-				?>
-				</div>
-			</ul>			
-		</div>
+		echo"<p>Vous trouverez sur ce site des QCM relatifs &agrave; toutes les mati&egrave;res enseign&eacute;es sur le campus.<br/><br/>
 		
-		<div id="CentrePage">
-					<div id="MenuCote">Menu gauche</div>
-					<div id="Centre">Centre<br/> lalala <br/> dfsdf</div>
-				
-		</div>
+		Ce site est &agrave; but p&eacute;dagogique, principalement pour tester ses connaissances.<br/>
+		Cependant, les professeurs utiliseront ce site dans le but de d'&eacute;valuer vos connaissances.<br/><br/>
 		
-	</body>
-	
-</html>
+		Inscrivez-vous et connectez-vous afin d'avoir acc&egrave;s &agrave; toutes les rubriques !<br/>
+		Les QCM publics sont &agrave; la dispositions de tous les utilisateurs.</p>";
+	}
+?>
+</div>
+
+<?php
+require('bottom.php');
+?>

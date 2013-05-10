@@ -83,3 +83,10 @@ require('auth.php');
 		</div>
 		<div id="CentrePage">
 			<div id="MenuCote">Menu gauche</div>
+					<div id="Centre">Centre<br/> lalala <br/> dfsdf</div>
+				
+		</div>
+		
+	</body>
+	
+</html>

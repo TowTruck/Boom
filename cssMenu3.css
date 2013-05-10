@@ -139,7 +139,31 @@ body
 .menu ul li:last-child a { border: none; }
 
 .menu a.accueil { background: url(Images/home.png) no-repeat 6px center;
-				 background-size: 26px 23px;}
+				 background-size: 23px 23px;}
+
+.menu a.menu_qcm { background: url(Images/notepad2.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+				 
+.menu a.menu_groupe { background: url(Images/users-group.png) no-repeat 6px center;
+				 background-size: 23px 23px}
+				 
+.menu a.menu_admin { background: url(Images/setting.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+				 
+.menu a.menu_contact { background: url(Images/mail.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+				 
+.menu a.menu_conn { background: url(Images/key.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+				 
+.menu a.menu_insc { background: url(Images/key.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+
+.menu a.menu_welcome { background: url(Images/vcard.png) no-repeat 6px center;
+				 background-size: 23px 23px;}
+				 
+.menu a.menu_rech { background: url(Images/zoom.png) no-repeat 6px center;
+				 background-size: 23px 23px;}				 
 				 
 .droite{
 	float:right;
