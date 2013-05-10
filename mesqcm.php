@@ -29,7 +29,7 @@ try {
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
-			echo $enregistrement->INTITULE.'<br>';
+			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br>';
 		}
 	?>
 	
