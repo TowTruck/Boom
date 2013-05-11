@@ -113,6 +113,18 @@ body {
 	margin-right 	: 0.5%;
 }
 
+#MenuCote ul,
+#MenuCote li,
+#MenuCote a
+{
+	margin: 5px;
+    padding: 2px;
+    border: none;
+    outline: none;
+	list-style: none;
+}
+
+
 #Centre
 {
 	min-Height		: 300px;
