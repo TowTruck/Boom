@@ -82,4 +82,14 @@ require('auth.php');
 			</ul>			
 		</div>
 		<div id="CentrePage">
-			<div id="MenuCote">Menu gauche</div>
+			<div id="MenuCote"><h2>Derniers QCM publi&eacute;s :</h2><br/><br/><ul>
+			<?php
+			$res=$bdd->query("SELECT * FROM QCM WHERE ID_QCM IN(SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=1)");
+			$res->setFetchMode(PDO::FETCH_OBJ);
+			while($ligne=$res->fetch())
+			{
+			echo "<li><a href=\"qcm.php?id=".$ligne->ID_QCM."\">".$ligne->INTITULE."</a></li>";
+			}
+			?>
+			</ul>
+			</div>
