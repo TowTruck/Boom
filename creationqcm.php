@@ -21,7 +21,7 @@ require('top.php');
 ?>
 <title>Creation de qcm</title>
 <div id="Centre">
-
+<h1>Nouveau qcm : </h1><br/>
 <?php
 
 //Verification auth

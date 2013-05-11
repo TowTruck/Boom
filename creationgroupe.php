@@ -3,6 +3,7 @@ require('top.php');
 ?>
 <div id="Centre">
 <title>Creation de groupe</title>
+<h1>Nouveau groupe : </h1><br/>
 <?php
 
 //Verification auth

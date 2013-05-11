@@ -33,7 +33,7 @@ try {
 	
 	</div>
 	<div id="groupes">
-	<h1>Ceux auxquels j'appartiens</h1>
+	<br/><h1>Ceux auxquels j'appartiens</h1>
 	
 	<?php
 		$select = $bdd->query("SELECT * FROM GROUPE WHERE ID_GROUPE IN (SELECT ID_GROUPE FROM FONT_PARTIE WHERE ID_USERS = ".$my_id.");");
@@ -46,7 +46,7 @@ try {
 	
 	</div>
 
-	<h1>Je veux créer un groupe</h1>
+	<br/><h1>Je veux créer un groupe</h1>
 	<a href="creationgroupe.php">Créer un groupe</a>
 </div>
 
