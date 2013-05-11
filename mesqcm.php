@@ -55,7 +55,6 @@ try {
 	<?php
 	// qcm auxquels l'user n'a pas encore répondu, et ceux dans les groupes où il est + qcm public
 		$select = $bdd->query("SELECT * FROM QCM WHERE ID_USERS <> ".$my_id." AND QCM.ID_QCM NOT IN (SELECT ID_QCM FROM REPOND WHERE ID_USERS = ".$my_id.") AND QCM.ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE IN (SELECT ID_GROUPE FROM FONT_PARTIE WHERE ID_USERS=".$my_id."));");
-		//$select = $bdd->query("SELECT * FROM QCM WHERE ID_USERS <> ".$my_id." AND QCM.ID_QCM NOT IN (SELECT ID_QCM FROM REPOND WHERE ID_USERS = ".$my_id.");");
 		$select->setFetchMode(PDO::FETCH_OBJ);
 		while( $enregistrement = $select->fetch() )
 		{
