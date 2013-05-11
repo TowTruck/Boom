@@ -130,7 +130,7 @@ body {
 #CentrePage a
 {
 	text-decoration	: none;
-	color			: #355e7a;
+	color			: #355e7af;
 }
 
 #CentrePage a:hover
@@ -138,3 +138,18 @@ body {
 	color			: #FF9900;
 }
 
+.table2 td,
+.table2 th,
+.table2
+{
+	border			: solid;
+	border-collapse : collapse;
+	text-align		: center;
+	padding			: 2px;
+	border-width	: 1px;
+}
+
+.table2 th
+{
+	font-weight 	: bold;
+}

@@ -78,8 +78,8 @@ else
 	echo'<h2> QCM en attente de validation </h2>';
 	echo '<form action="administration.php" method="post">';
 			echo '<input type="hidden" name="validation" value="val"/>';
-			echo "<table>";
-			echo "<tr><td> Id du createur </td> <td> Intitul&eacute; du QCM </td> <td> Valider le QCM? </td><td> Supprimer le QCM </td><td> Visualiser </td></tr>";
+			echo "<table class=\"table2\">";
+			echo "<tr><th> Id du createur </th> <th> Intitul&eacute; du QCM </th> <th> Valider le QCM? </th><th> Supprimer le QCM </th><th> Visualiser </th></tr>";
 			$select1 = $bdd->query("SELECT * FROM QCM WHERE ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE = 0);");
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch())
@@ -128,8 +128,8 @@ else
 	echo'<br/><br/><h2> Gestion des utilisateurs </h2>';
 	echo '<form action="administration.php" method="post">';
 			echo '<input type="hidden" name="suppr" value="del">';
-			echo "<table>";
-			echo "<tr><td> Id </td> <td> Prenom </td> <td> Nom </td> <td> Supprimer l'utilisateur? </td></tr>";
+			echo "<table class=\"table2\">";
+			echo "<tr><th> Id </th> <th> Prenom </th> <th> Nom </th> <th> Supprimer l'utilisateur? </th></tr>";
 			$select1 = $bdd->query("SELECT NOM,PRENOM,ID_USERS,ID_RANG FROM USERS;");
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch())

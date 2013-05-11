@@ -115,8 +115,8 @@ require('top.php');
 			echo "<h2> Vous etes le propr&eacute;taire du groupe. Affichage de la gestion de utilisateurs</h2> <br /> <br />";
 			echo '<form action="groupe.php?id='.$idg.'" method="post">';
 			echo '<input type="hidden" name="suppr" value="del">';
-			echo "<table>";
-			echo "<tr> <td> Nom </td> <td> Prenom </td> <td> Supprimer du groupe? </td></tr>";
+			echo "<table class=\"table2\">";
+			echo "<tr> <th> Nom </th> <th> Prenom </th> <th> Supprimer du groupe? </th></tr>";
 			$select1 = $bdd->query("SELECT NOM,PRENOM,ID_USERS FROM USERS WHERE ID_USERS IN (SELECT ID_USERS FROM FONT_PARTIE WHERE ID_GROUPE=".$idg.") ;");
 			$select1->setFetchMode(PDO::FETCH_OBJ);
 			while( $enregistrement1 = $select1->fetch() )
