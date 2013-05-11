@@ -1,7 +1,7 @@
 body {
 	width			: 1200px;
 	margin			: 0 auto;
-	background-image: url(Images/Fond1.jpg);
+	background-image: url(Images/beige2.jpg);
 	background-attachment: fixed;
 }
 
@@ -65,12 +65,13 @@ body {
 	margin-bottom 	: 50px;
     width           : 100%;
 	margin-top 		: 130px;
+	border-radius	: 4px;
 }
 
 #CentrePage
 {
 	height			: 1000px;
-	margin-top      : 100px;
+	margin-top      : 50px;
 }
 
 #CentrePage table
@@ -102,7 +103,7 @@ body {
 	border-style	: solid;
 	border-color 	: black;
 	background-color: rgba(0, 0, 0, 0.1);
-	margin-right : 0.5%;
+	margin-right 	: 0.5%;
 }
 
 #Centre

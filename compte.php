@@ -37,31 +37,41 @@ echo "<script langage=\"text/javascript\">alert(\"Mot de passe mis à jour\");</s
 
 if(isAuth())
 {
-echo "<h2>Mes informations : </h2><br/>";
+echo "<table class=\"table\"> <tr> <td colspan=\"2\"><h2>Mes informations : </h2> </td> </tr>";
 $id=$_SESSION['uid'];
 $res=$bdd->query("SELECT * FROM USERS WHERE ID_USERS=".$id."");
 $res->setFetchMode(PDO::FETCH_OBJ);
 $ligne=$res->fetch();
 
-echo "Nom : ".$ligne->NOM."<br/>";
-echo "Prenom : ".$ligne->PRENOM."<br/>";
-echo "Mail : ".$ligne->MAIL."<br/>";
+echo "<tr> <td> Nom :</td> <td> ".$ligne->NOM."</td></tr>";
+echo "<tr> <td>Prenom :</td> <td>  ".$ligne->PRENOM."</td></tr>";
+echo "<tr> <td> Mail :</td> <td>  ".$ligne->MAIL."</td></tr>";
 ?>
 
-<form action="" method="post">
-<input type="hidden" name="qcm" value="sub"/>
-<label for="oldpasswd">Ancien mot de passe : </label>
-<input id="oldpasswd" name="oldpasswd" type="password" /><br/>
+	<form action="" method="post">
+	<input type="hidden" name="qcm" value="sub"/>
+			
+	<tr>
+			<td><label for="oldpasswd">Ancien mot de passe : </label></td>
+			<td><input id="oldpasswd" name="oldpasswd" type="password" /></td>
+	</tr>
+	<tr>
+			<td><label for="newpasswd1">Tapez votre nouveau mot de passe : </label></td>
+			<td><input id="newpasswd1" name="newpasswd1" type="password" /></td>
+	</tr>
+	<tr>
+			<td><label for="newpasswd2">Retapez votre nouveau mot de passe : </label></td>
+			<td><input id="newpasswd2" name="newpasswd2" type="password" /></td>
+	</tr>
+		
+	<tr>
+		<td><input type="submit" value="Changer mon mot de passe"/></td>
+		<td></td>
+	</tr>
+	
+	</table>	
 
-<label for="newpasswd1">Tapez votre nouveau mot de passe : </label>
-<input id="newpasswd1" name="newpasswd1" type="password" /><br/>
-
-<label for="newpasswd2">Retapez votre nouveau mot de passe : </label>
-<input id="newpasswd2" name="newpasswd2" type="password" /><br/><br/>
-
-<input type="submit" value="Changer mon mot de passe"/>
-
-</form>
+	</form>
 <?php
 
 }
