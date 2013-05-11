@@ -9,7 +9,7 @@ body {
 	background-image: url(Images/beige2.jpg);
 	background-attachment: fixed;
 	font-family		: Popo;
-	font-size		: 12px;
+	font-size		: 14px;
 }
 
 
@@ -83,6 +83,7 @@ body {
 	margin-top      : 50px;
 }
 
+
 .table
 {
 	border			: solid;
@@ -124,5 +125,16 @@ body {
 	border-style	: solid;
 	border-color	: black;
 	background-color: rgba(0, 0, 0, 0.1);
+}
+
+#CentrePage a
+{
+	text-decoration	: none;
+	color			: #355e7a;
+}
+
+#CentrePage a:hover
+{
+	color			: #FF9900;
 }
 
