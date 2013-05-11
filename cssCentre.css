@@ -1,9 +1,18 @@
+@font-face{
+font-family:'Popo';
+src: url('police/Quicksand_Book.otf');
+}
+
 body {
 	width			: 1200px;
 	margin			: 0 auto;
 	background-image: url(Images/beige2.jpg);
 	background-attachment: fixed;
+	font-family		: Popo;
+	font-size		: 12px;
 }
+
+
 
 #fixe-haut
 {
@@ -74,7 +83,7 @@ body {
 	margin-top      : 50px;
 }
 
-#CentrePage table
+.table
 {
 	border			: solid;
 	border-collapse	: collapse;	
@@ -82,13 +91,13 @@ body {
 	height			: 100%;
 }
 
-#CentrePage table,
-#CentrePage table td
+.table,
+.table td
 {
 	border			: none ;
 }
 
-#CentrePage table h2
+.table h2
 {
 	text-align 		: center;
 	color			: #355e7a;
