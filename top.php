@@ -11,8 +11,6 @@
 require('connect.php');
 require('auth.php');
 ?>
-		<div id="fixe-haut">
-		</div>
 		
 		
 		<div id="Barremenu" >
@@ -81,6 +79,10 @@ require('auth.php');
 			</div>
 			</ul>			
 		</div>
+		
+		<div id="fixe-haut">
+		</div>
+		
 		<div id="CentrePage">
 			<div id="MenuCote"><h2>Derniers QCM publi&eacute;s :</h2><br/><br/><ul>
 			<?php
