@@ -83,7 +83,43 @@ require('auth.php');
 		</div>
 		<div id="CentrePage">
 			<div id="MenuCote">Menu gauche</div>
-					<div id="Centre">Centre<br/> lalala <br/> dfsdf</div>
+					<div id="Centre">
+					
+					<table class="table">
+					<tr>
+						<td colspan="2"><h2> Formulaire d'inscription </h2></td>
+					</tr>
+					<form action="" method="post">
+						
+						<tr>
+							<td><label for="login">Login : </label></td>
+							<td><input type="text" id="login" name="logini"/> <br/></td>
+						</tr>
+						<tr>
+							<td><label for="nom">Nom : </label></td>
+							<td><input type="text" id="nom" name="nomi"/> <br/>	</td>
+						</tr>
+						<tr>
+							<td><label for="prenom">Pr&eacute;nom : </label></td>
+							<td><input type="text" id="prenom" name="prenomi"/> <br/></td>
+						</tr>
+						<tr>
+							<td><label for="mail">Adresse mail : </label></td>
+							<td><input type="text" id="mail" name="maili" />@etu.u-bourgogne.fr <br/></td>
+						</tr>
+						<tr>
+							<td><label for="mdp">Mot de passe : </label></td>
+							<td><input type="password" id="mdp" name="mdpi"/> <br/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" value="Valider"/></td>
+						</tr>
+								
+					</form>
+					</table>
+	
+	</div>
 				
 		</div>
 		

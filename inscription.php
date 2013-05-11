@@ -70,23 +70,39 @@ if(isset($_POST['logini']))
 
 
 ?>
-		<h2> Formulaire d'inscription </h2><br/>
-	<form action="" method="post">
-
-		<label for="login">Login : </label>
-		<input type="text" id="login" name="logini"/> <br/>
-		<label for="nom">Nom : </label>
-		<input type="text" id="nom" name="nomi"/> <br/>		
-		<label for="prenom">Pr&eacute;nom : </label>
-		<input type="text" id="prenom" name="prenomi"/> <br/>
-		<label for="mail">Adresse mail : </label>
-		<input type="text" id="mail" name="maili" />@etu.u-bourgogne.fr <br/>
-		<label for="mdp">Mot de passe : </label>
-		<input type="password" id="mdp" name="mdpi"/> <br/>
-			
-				
-		<input type="submit" value="Valider"/>
-	</form>
+		<table class="table">
+					<tr>
+						<td colspan="2"><h2> Formulaire d'inscription </h2></td>
+					</tr>
+					<form action="" method="post">
+						
+						<tr>
+							<td><label for="login">Login : </label></td>
+							<td><input type="text" id="login" name="logini"/> <br/></td>
+						</tr>
+						<tr>
+							<td><label for="nom">Nom : </label></td>
+							<td><input type="text" id="nom" name="nomi"/> <br/>	</td>
+						</tr>
+						<tr>
+							<td><label for="prenom">Pr&eacute;nom : </label></td>
+							<td><input type="text" id="prenom" name="prenomi"/> <br/></td>
+						</tr>
+						<tr>
+							<td><label for="mail">Adresse mail : </label></td>
+							<td><input type="text" id="mail" name="maili" />@etu.u-bourgogne.fr <br/></td>
+						</tr>
+						<tr>
+							<td><label for="mdp">Mot de passe : </label></td>
+							<td><input type="password" id="mdp" name="mdpi"/> <br/></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" value="Valider"/></td>
+						</tr>
+								
+					</form>
+		</table>
 
 <?php
 

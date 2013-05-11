@@ -81,9 +81,16 @@ body {
 	height			: 100%;
 }
 
+#CentrePage table,
 #CentrePage table td
 {
-	border			: solid ;
+	border			: none ;
+}
+
+#CentrePage table h2
+{
+	text-align 		: center;
+	color			: #355e7a;
 }
 
 #MenuCote
@@ -108,3 +115,4 @@ body {
 	border-color	: black;
 	background-color: rgba(0, 0, 0, 0.1);
 }
+
