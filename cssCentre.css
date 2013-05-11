@@ -12,17 +12,23 @@ body {
 	font-size		: 14px;
 }
 
-
+#Barremenu
+{
+    height          : 40px;
+    width           : 100%;
+	top				: 0;
+	position		: fixed;
+	z-index 		: 2;
+}
 
 #fixe-haut
 {
 	background		: url(Images/bannieres2.png) no-repeat center;
-    height          : 100px;
-    position        : fixed;
+    height          : 100px;    
     top             : 0;
     width           : 100%;
     left            : 0%;
-	z-index 		: 2;
+	margin-top		: 100px;
 }
 
 #fixe-haut p
@@ -50,7 +56,6 @@ body {
 #fixe-haut fieldset input
 {	
 	border-radius			: 1px;
-	/*box-shadow				:5px 5px 5px grey;*/
 }
 
 .button
@@ -66,21 +71,12 @@ body {
 	background-color: #26527f;
 }
 
-#Barremenu
-{
-	background-image: url(Images/FondMenu.png);
-	background-size : cover;
-    height          : 40px;
-	margin-bottom 	: 50px;
-    width           : 100%;
-	margin-top 		: 130px;
-	border-radius	: 4px;
-}
+
 
 #CentrePage
 {
 	height			: 1000px;
-	margin-top      : 50px;
+	margin-top      : 20px;
 }
 
 
@@ -121,7 +117,7 @@ body {
 {
 	min-Height		: 300px;
 	float			: left;
-	width 			: 78.5%;
+	width 			: 79%;
 	border-width	: 1px;
 	border-style	: solid;
 	border-color	: black;

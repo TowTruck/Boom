@@ -11,8 +11,7 @@
 require('connect.php');
 require('auth.php');
 ?>
-		<div id="fixe-haut">
-		</div>
+		
 		
 		
 		<div id="Barremenu" >
@@ -81,6 +80,11 @@ require('auth.php');
 			</div>
 			</ul>			
 		</div>
+		
+		<div id="fixe-haut">
+		</div>
+		
+		
 		<div id="CentrePage">
 			<div id="MenuCote">Menu gauche</div>
 					<div id="Centre">
