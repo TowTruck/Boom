@@ -60,7 +60,7 @@ if(isset($_POST['logini']))
 		mail($to, $subject, $message,$headers);
 
 		echo "<script langage=\"text/javascript\">
-		alert(\"Un mail vous a été envoyer à l'adresse : ".$to."\");
+		alert(\"Un mail vous a ete envoye a l'adresse : ".$to."\");
 		</script>";
 		
 		}

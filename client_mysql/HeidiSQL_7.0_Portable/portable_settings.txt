@@ -69,13 +69,13 @@ ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
 MainWinLeft<|||>3<|||>177
-MainWinTop<|||>3<|||>-16
+MainWinTop<|||>3<|||>0
 MainWinWidth<|||>3<|||>1189
 MainWinHeight<|||>3<|||>784
 Servers\Unnamed\ServerVersionFull<|||>1<|||>5.0.51a-24+lenny5 - (Debian)
-Servers\Unnamed\ConnectCount<|||>3<|||>9
+Servers\Unnamed\ConnectCount<|||>3<|||>11
 Servers\Unnamed\ServerVersion<|||>3<|||>50051
-Servers\Unnamed\LastConnect<|||>1<|||>2013-05-10 17:27:38
+Servers\Unnamed\LastConnect<|||>1<|||>2013-05-12 21:30:10
 Servers\Unnamed\Host<|||>1<|||>localhost
 Servers\Unnamed\WindowsAuth<|||>3<|||>0
 Servers\Unnamed\User<|||>1<|||>ve380591
@@ -99,3 +99,5 @@ Servers\Unnamed\SSL_Cert<|||>1<|||>
 Servers\Unnamed\SSL_CA<|||>1<|||>
 Servers\Unnamed\SessionCreated<|||>1<|||>2013-04-30 18:30:24
 Servers\Unnamed\lastUsedDB<|||>1<|||>ve380591
+Servers\Unnamed\RefusedCount<|||>3<|||>1
+Servers\Unnamed\ve380591|USERS\Sort<|||>1<|||>0_ID_USERS|
