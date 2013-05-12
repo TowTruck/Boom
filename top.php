@@ -84,10 +84,10 @@ require('auth.php');
 		</div>
 		
 		<div id="CentrePage">
-			<div id="MenuCote"><h2>Derniers QCM publi&eacute;s :</h2><br/><br/>
+			<div id="MenuCote"><h3>Derniers QCM publi&eacute;s :</h3><br/><br/>
 			<ul>
 				<?php
-				$res=$bdd->query("SELECT * FROM QCM WHERE ID_QCM IN(SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=1)");
+				$res=$bdd->query("SELECT * FROM QCM WHERE ID_QCM IN(SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=1) GROUP BY ID_QCM DESC LIMIT 7");
 				$res->setFetchMode(PDO::FETCH_OBJ);
 				while($ligne=$res->fetch())
 				{

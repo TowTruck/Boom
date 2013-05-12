@@ -98,7 +98,7 @@ else
 <input type="hidden" name="qcm" value="sub"/>
 <fieldset>
 <legend>Informations</legend>
-
+<br/>
 <label for="nom">Nom : </label>
 <input type="text" id="nom" name="nom"/><br/>
 
@@ -150,8 +150,10 @@ echo "</select><br/>";
 <label for="t5">Type 5 :: Une ou plusieurs r&eacuteponses possibles</label><br/>
 
 </fieldset>
+<br/>
 <fieldset id="questions">
 <legend>Questions</legend>
+<br/>
 <script type="text/javascript">
 var nbq=1;
 function addquestion()
@@ -162,7 +164,7 @@ var form=document.createElement("div");
 var html="<fieldset><legend>Question "+nbq+"</legend>"+"<label for=\"q"+nbq+"\">Question :</label><input type=\"text\" id=\"q"+nbq+"\" name=\"q"+nbq+"\"/><br/>"+"<div class=\"rep\" style=\"margin-left:2%;\">";
 for(var i=1;i<6;i++)
 {html+="<label for=\"r"+nbq+"."+i+"\">Reponse "+i+"</label><input type=\"text\" id=\"r"+nbq+"."+i+"\" name=\"r"+nbq+"."+i+"\"/><input type=\"checkbox\" name=\"r"+nbq+"."+i+"x\"/><br/>";}
-html+="</fieldset>";
+html+="</fieldset><br/>";
 form.innerHTML=html;
 q.appendChild(form);
 }
@@ -247,6 +249,7 @@ function valider(form)
 <input type="checkbox" name="r1.5x"/><br/>
 </div>
 </fieldset>
+<br/>
 </div>
 </fieldset>
 <input type="button" value="Ajouter une question" onclick="addquestion();"/>
