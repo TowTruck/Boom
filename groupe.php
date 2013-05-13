@@ -97,7 +97,6 @@ require('top.php');
 	{
 		$select = $bdd->query("SELECT * FROM QCM WHERE QCM.ID_QCM IN (SELECT ID_QCM FROM LIAISON WHERE ID_GROUPE=".$idg.");");
 		$select->setFetchMode(PDO::FETCH_OBJ);
-		$info=$select->fetch();
 		while( $enregistrement = $select->fetch() )
 		{
 			echo '<a href="qcm.php?id='.$enregistrement->ID_QCM.'">'.$enregistrement->INTITULE.'</a><br/>';
