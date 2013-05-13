@@ -43,7 +43,7 @@ if(isset($_POST['logini']))
 		$res=$bdd->query("INSERT INTO USERS (ID_RANG,LOGIN,NOM,PRENOM,MDP,VALIDE,MAIL) VALUES (2,'".$login."','".$nom."','".$prenom."','".$mdp2."','".$rand."','".$mail."')");
 
 		$to = $mail;
-		$hebergement="http://ufrsciencestech.u-bourgogne.fr/~yh476107/Test/validation.php?id=";
+		$hebergement="http://ufrsciencestech.u-bourgogne.fr/~an123429/QCM/validation.php?id=";
 
 		$subject = 'Universite de Bourgogne : Inscription QCM ';
 
